@@ -2,8 +2,14 @@
 
 <html>
     <?php include_once('./imports/import_head.php'); ?>
+    <style> 
+        .btn-active-menu {
+            display:none;
+        }
+        .sidebar
+    </style>
     <body>
-        <?php include_once('./imports/import_header.php');?>
+        <?php include_once('./imports/import_header.php'); ?>
         <div class="container-fluid">
             <div class="login-content">
                 <!--mensagem de alerta-->

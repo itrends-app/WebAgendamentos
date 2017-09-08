@@ -8,8 +8,6 @@ try {
     $stmt->execute();
     if ($stmt) {
         echo "ok";
-    } else {
-        echo "not";
     }
 } catch (PDOException $e) {
     echo $e->getMessage();

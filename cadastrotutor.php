@@ -2,7 +2,7 @@
 <?php
 include_once './php/SessaoUsuario.php';
 include_once('./php/conexao.php');
-$pag = "tutor";
+$pag = "cad";
 ?>
 <html>
     <?php include_once('./imports/import_head.php'); ?>

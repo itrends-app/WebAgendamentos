@@ -8,79 +8,75 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+$pag = 'con';
 ?>
 <html>
     <?php include_once('./imports/import_head.php'); ?>
     <body>
-        <?php include_once('./imports/import_header.php');?>
+        <?php
+        include_once('./imports/import_header.php');
+        include_once('./imports/import_menu.php');
+        ?>
         <div class="container-fluid">
-            <div class="row">
-                <section class="main-content">
-                    <div class="selects-consulta">
-                        <form>
-                            <div class="bloco">
-                                <span class="fs fs-14">Categoria:</span>
-                                <br>
-
-                                <select id="sel-categoria" name="categoria" class="slt wdt-300">
-                                    <option value="">Selecione uma</option>
-                                    <?php
-                                    while ($con_cat = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                        $st = $pdo->prepare("select * from vw_categorias where parent = :pai order by name");
-                                        $st->bindValue(":pai", $con_cat['id_category']);
-                                        $st->execute();
-                                        echo '<optgroup label="' . utf8_encode($con_cat['name']) . '">';
-                                        while ($filha = $st->fetch(PDO::FETCH_ASSOC)) {
-                                            ?>
-                                            <option value="<?php echo $filha['id_category']; ?>"><?php echo utf8_encode($filha['name']); ?></option>
-                                            <?php
-                                        }
-                                    }
+            <section class="main-content">
+                <div class="title">Consultar Agendamentos</div>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label>Categoria:</label>
+                        <select id="sel-categoria" name="categoria" class="form-control">
+                            <option value="">Selecione uma</option>
+                            <?php
+                            while ($con_cat = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                $st = $pdo->prepare("select * from vw_categorias where parent = :pai order by name");
+                                $st->bindValue(":pai", $con_cat['id_category']);
+                                $st->execute();
+                                echo '<optgroup label="' . utf8_encode($con_cat['name']) . '">';
+                                while ($filha = $st->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
-                                </select>
-                            </div>
-
-                            <div class="bloco">
-                                <span class="fs fs-14">Curso:</span>
-                                <br>
-                                <select id="sel-curso" name="curso" class="slt wdt-300">
-                                    <option value="">Selecione um</option>
-                                </select>
-                            </div>
-
-                            <div class="bloco">
-                                <span class="fs fs-14">Monitor:</span>
-                                <br>
-                                <select id="sel-monitor" class="slt wdt-300" onchange="buscaAgendamentos(this.value);">
-                                    <option value="">Selecione uma opção</option>
-                                </select>
-                            </div>
-                        </form>
+                                    <option value="<?php echo $filha['id_category']; ?>"><?php echo utf8_encode($filha['name']); ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </select>
                     </div>
-                    <div class="scroll-vertical">    
-                        <div class="tb">
-
-                            <table>
-                                <tr>
-                                    <th>Matrícula</th>
-                                    <th>Nome do Aluno</th>
-                                    <th>Agendado para</th>
-                                    <th>Ações</th>
-                                </tr>
-
-                                <tbody id="tabela-agendamentos">
-
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="form-group">
+                        <label>Curso:</label>
+                        <select id="sel-curso" name="curso" class="form-control">
+                            <option value="">Selecione um</option>
+                        </select>
                     </div>
-            </div>
-        </section>
-    </div>
-    <?php
-    include_once('./imports/import_footer.php');
-    ?>
-</body>
+                    <div class="form-group">
+                        <label>Tutor:</label>
+                        <select id="sel-monitor" class="form-control" onchange="buscaAgendamentos(this.value);">
+                            <option value="">Selecione uma opção</option>
+                        </select>
+                    </div>
+                </form>
+                <br>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Matrícula</th>
+                                <th>Nome do Aluno</th>
+                                <th>Agendado para</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabela-agendamentos">
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        <?php
+        include_once('./imports/import_footer.php');
+        ?>
+    </body>
 </html>
 
 <script type="text/javascript">

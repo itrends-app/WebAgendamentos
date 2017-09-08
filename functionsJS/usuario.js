@@ -1,3 +1,4 @@
+var user_id;
 function logar() {
     $.ajax({
         type: 'POST',
@@ -37,12 +38,12 @@ function cadastrarUsuario() {
             data: dados,
             success: function (msg) {
                 if (msg === "ok") {
-                    $('.mensagem span').html('Usuário cadastrado com sucesso!');
-                    $('.mensagem').css('display', 'block').css('background-color', '#32BF32').removeClass('bg-red-60');
+                    $('.alert').addClass('alert-success').fadeIn(500);
+                    $('.alert .alert-msg').html("Usuário cadastrado com sucesso!");
                     limpaCampos();
                 } else {
-                    $('.mensagem span').html('Erro ao tentar cadastrar o usuário!');
-                    $('.mensagem').css('display', 'block').addClass('bg-red-60');
+                    $('.alert').addClass('alert-danger').fadeIn(500);
+                    $('.alert .alert-msg').html(msg);
                 }
             }
         });
@@ -128,31 +129,24 @@ function pesquisar() {
                 for (var i = 0; i < dados.length; i++) {
                     if (dados[i].nivel_acesso == 1) {
                         $('#usr-table').append('<tr><td>' + dados[i].usuario + '</td><td>' + dados[i].nome_usuario + '</td>\n\
-                            <td>Administrador</td><td style="text-align:center;"><a href="#" onclick="iniciarEdicao(' + dados[i].id + ');"><i class="fa fa-cog c-black"></i></a>\n\
-                            <a href="#" onclick="abrirDialogo(' + dados[i].id + ');"><i class="fa fa-trash c-red"></i></a></td></tr>');
+                            <td>Administrador</td><td style="text-align:center;"><a href="#" onclick="iniciarEdicao(' + dados[i].id + ');"><i class="material-icons md-dark">settings</i></a>\n\
+                            <a href="#" data-toggle="modal" data-target="#delete-modal" onclick="selecionaUsuario('+dados[i].id+');"><i class="material-icons md-dark-red">delete_forever</i></a></td></tr>');
                     }
                     if (dados[i].nivel_acesso == 2) {
                         $('#usr-table').append('<tr><td>' + dados[i].usuario + '</td><td>' + dados[i].nome_usuario + '</td>\n\
-                            <td>Gerente</td><td style="text-align:center;"><a href="#" onclick="iniciarEdicao(' + dados[i].id + ');"><i class="fa fa-cog c-black"></i></a>\n\
-                            <a href="#" onclick="abrirDialogo(' + dados[i].id + ');"><i class="fa fa-trash c-red"></i></a></td></tr>');
+                            <td>Gerente</td><td style="text-align:center;"><a href="#" onclick="iniciarEdicao(' + dados[i].id + ');"><i class="material-icons md-dark">settings</i></a>\n\
+                            <a href="#" data-toggle="modal" data-target="#delete-modal" onclick="selecionaUsuario('+dados[i].id+');"><i class="material-icons md-dark-red">delete_forever</i></a></td></tr>');
                     }
                 }
             }
         }
     });
 }
-function fecharMsgErro() {
-    $('.mensagem').css('display', 'none').css('transition', '1s');
-}
-function fecharDialogo() {
-    $('#dialogo-confirmacao').css('display', 'none');
-}
-function abrirDialogo(id_user) {
+function selecionaUsuario(id_user) {
     user_id = id_user;
-    $('#dialogo-confirmacao').css('display', 'block');
-    $('.confirm').css('opacity', '1').css('margin', '20px auto').css('transition', '3s');
 }
 function excluirUsuario() {
+    alert('entrou');
     $.ajax({
         type: 'post',
         dataType: 'html',
@@ -161,11 +155,14 @@ function excluirUsuario() {
             id: user_id
         },
         success: function (msg) {
-            if (msg === "ok") {
-                fecharDialogo();
+            alert('entrou no ajax!');
+            if (msg == "ok") {
                 pesquisar();
-                $('.mensagem span').html('Usuário excluído com sucesso!');
-                $('.mensagem').css('display', 'block').css('background-color', '#32BF32');
+                $('.alert').addClass('alert-success').fadeIn(500);
+                $('.alert .alert-msg').html("Usuário excluído com sucesso!");
+            } else {
+                $('.alert').addClass('alert-danger').fadeIn(500);
+                $('.alert .alert-msg').html(msg);
             }
         }
     });
@@ -180,7 +177,41 @@ function iniciarEdicao(usuario_id) {
             usuario: usuario_id
         },
         success: function (msg) {
-            location.href = 'editar_usuario.php';
+            location.href = 'editarusuario.php';
         }
     });
+}
+
+//edição do usuário
+function editarUsuario() {
+    var dados = $('#form').serialize();
+    $.ajax({
+        type: 'post',
+        dataType: 'html',
+        url: "./php/EditarUsuario.php",
+        data: dados,
+        success: function (msg) {
+            if (msg === "ok") {
+                $('.alert').addClass('alert-success').fadeIn(500);
+                $('.alert .alert-msg').html('As informações do usuário foram editadas com sucesso!');
+            } else {
+                $('.alert').addClass('alert-danger').fadeIn(500);
+                $('.alert .alert-msg').html('Erro ao tentar editar as informações!');
+            }
+        }
+    });
+}
+function mostrarSenha() {
+    var mst = this.form_consulta_usuario.mostrar_senha;
+    if (mst.checked) {
+        this.form_consulta_usuario.senha.type = 'text';
+    } else {
+        this.form_consulta_usuario.senha.type = 'password';
+    }
+}
+function irParaPagina(url) {
+    location.href = url;
+}
+function fecharMsgErro() {
+    $('.mensagem').css('display', 'none').css('transition', '1s');
 }

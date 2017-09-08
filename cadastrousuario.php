@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <?php
-////include_once './php/SessaoUsuario.php';
-//if($_SESSION['nivel_acesso'] == 2) {
-//    header("Location:403.php");
-//}
-$pag = "tutor";
+include_once './php/SessaoUsuario.php';
+if ($_SESSION['nivel_acesso'] == 2) {
+    header("Location:403.php");
+}
+$pag = "cad";
 ?>
 <html>
     <?php include_once('./imports/import_head.php'); ?>
     <body>
-        <?php include_once('./imports/import_header.php'); ?>
+        <?php
+        include_once('./imports/import_header.php');
+        include_once('./imports/import_menu.php');
+        ?>
         <div class="container-fluid">
             <section class="main-content">
+                <div class="alert ocultar" role="alert">
+                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="alert-msg"></span>
+                </div>
                 <div class="title">Cadastro de Usuários</div>
                 <form method="post" id="form-usuario" name="form_usuario">
                     <div class="row">
