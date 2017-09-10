@@ -3,12 +3,12 @@ include_once './php/valida_usuario.php';
 include_once('./php/hora_atual.php');
 include './php/DataHoraAtual.php';
 include_once('./php/mes_por_extenso.php');
-if(isset($_SESSION['monitor_selecionado'])) {
-    if($_SESSION['monitor_selecionado'] == "") {
+if (isset($_SESSION['monitor_selecionado'])) {
+    if ($_SESSION['monitor_selecionado'] == "") {
         header("Location:index.php");
     }
 } else {
-     header("Location:index.php");
+    header("Location:index.php");
 }
 $usuario_logado = $_SESSION['aluno'];
 
@@ -20,37 +20,15 @@ $semana = array(
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <title>Agendamentos</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/menu.css">
-        <link rel="stylesheet" href="../css/bootstrap.css">
-        <link rel="stylesheet" href="../css/componentes.css">
-        <link rel="stylesheet" href="css/aluno.css">
-        <link rel="stylesheet" href="../css/menu-mobile.css" media="(max-width:760px)">
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
-    </head>
+    <?php include_once('./imports/import_head.php'); ?>
     <body>
-
-        <div class="container">
-
-            <?php
-            include_once('../layout/header.php');
-            include_once './btn-sair.php';
-            
-            ?>
-            <?php include_once './layout/menu.php';?>
-            <center>
-                <div class="corpo">
-                    <!--Mensagem de retorno-->
-                    <div class="mensagem">
-                        <span class="fs fs-16 c-white"></span>
-                        <a href="#" onclick="fecharMsgErro();" style="float:right;"><i class="fa fa-close c-white"></i></a>
-                    </div>
-
+        <?php
+        include_once('./imports/import_header.php');
+        include_once('./imports/import_menu.php');
+        ?>
+        <div class="container-fluid">
+            <section class="main-content">
+                <center>
                     <div class="grade1">
                         <?php include_once './grade_um.php'; ?>
                     </div>
@@ -66,7 +44,7 @@ $semana = array(
                         $st01->bindValue(":monitor", $_SESSION['monitor_selecionado']);
                         $st01->execute();
                         $con = $st01->fetch(PDO::FETCH_ASSOC);
-                        
+
                         $_SESSION['monitor_selecionado2'] = $con['firstname'];
                         $_SESSION['disciplina'] = $con['fullname'];
                         $_SESSION['nome_categoria'] = $con['name'];
@@ -77,14 +55,11 @@ $semana = array(
                             </div>
                         </center>
                     </div>
-                </div>
-            </center>
+                </center>
 
-            <?php
-            include_once('../layout/footer.php');
-            ?>
+            </section>
         </div>
-
+        <?php include_once('./imports/import_footer.php');?>
     </body>
 </html>
 <script type="text/javascript">

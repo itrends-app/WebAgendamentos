@@ -153,6 +153,10 @@ footer .logo-uni {
 .form-tutor {
     width: 100%;
 }
+.cad_horario {
+    background-color: #ccc;
+    color: #000;
+}
 @media(min-width:480px) {
     .btn-mob {
         width: auto;

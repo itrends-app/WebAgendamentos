@@ -24,6 +24,7 @@ $pag = "";
         ?>
         <div class="container-fluid">
             <section class="main-content">
+                <div class="title">Selecionar Tutor</div>
                 <center>
                     <div class="form-group">
                         <label>Selecione um Curso/Disciplina:</label>

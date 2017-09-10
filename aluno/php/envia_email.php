@@ -2,12 +2,12 @@
 
 //include_once('../php/conexao.php');
 //retorna os dados referentes ao monitor e ao aluno
-include_once './php/pega_ultimo_agendamento.php';
+include_once './pega_ultimo_agendamento.php';
 $email = $_POST["email"];//pega email do aluno
 $monitor_id = $_SESSION['monitor_selecionado'];
 
 //Mensagem que o sistema irá enviar para o aluno da disciplina
-$mensagem = "<h3>Olá, você confirmou a sua presença no encontro de monitoria. <br>Categoria: " . utf8_encode($_SESSION['nome_categoria']) . ""
+$mensagem = "<div style='width:100%;height:60px;color:#fff;font-size:20px;background-color:#000;'>TESTE</div><h3>Olá, você confirmou a sua presença no encontro de monitoria. <br>Categoria: " . utf8_encode($_SESSION['nome_categoria']) . ""
         . "<br>Curso: " . utf8_encode($_SESSION['disciplina']) . "<br>Monitor: " . $_SESSION['monitor_selecionado2'] . "<br>Agendado para: " . $_SESSION['dia_marcado'] . " de "
         . "" . $_SESSION['mes_marcado'] . " de " . $_SESSION['ano_marcado'] . " " . $_SESSION['hora_marcada'] . "<br><br><br>"
         . "<a href='http://neadteste.fcrs.edu.br/uniagendamentos/aluno/php/pega_dados_via_email.php?id=$lastid&email=$email'>Clique aqui para cancelar o agendamento</a><br>"
@@ -21,7 +21,7 @@ $mensagem_monitor = "<h2>".utf8_encode('Confirmação de agendamento')."</h2>"
         . "Agendado para: " . $_SESSION['dia_marcado'] . " de "
         . "" . $_SESSION['mes_marcado'] . " de " . $_SESSION['ano_marcado'] . " " . $_SESSION['hora_marcada']."</h3>";
 
-require_once("../phpmailer/class.phpmailer.php");
+require_once("../../phpmailer/class.phpmailer.php");
 
 define('GUSER', 'arcs.si3@gmail.com'); //email responsável por enviar os emails para os alunos e tutores
 define('GPWD', '22041996#$'); // senha do email
