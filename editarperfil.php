@@ -10,11 +10,15 @@ try {
 } catch (Exception $ex) {
     echo $ex->getMessage();
 }
+$pag = "config";
 ?>
 <html>
     <?php include_once('./imports/import_head.php'); ?>
     <body>
-        <?php include_once('./imports/import_header.php'); ?>
+        <?php 
+        include_once('./imports/import_header.php'); 
+        include_once('./imports/import_menu.php');
+        ?>
         <div class="container-fluid">
             <div class="main-content">
                 <div class="title">Atualizar Perfil</div>

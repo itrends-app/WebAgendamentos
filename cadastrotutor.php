@@ -24,16 +24,16 @@ $pag = "cad";
                     <li><a href="#" title="avancado" onclick="mudaAba(this);"><i class="fa fa-bell"></i> Avançado</a></li>
                     <li><a href="#" title="confirm" onclick="mudaAba(this);"><i class="fa fa-calendar"></i> Confirmação</a></li>
                 </ul>
-<!--                <div id="abas">
-                    <div class="group">
-                        <div class="aba-guia guia1"><a href="#" onclick="selecionaAba('.guia1 a');"><i class="fa fa-user"></i> Tutor</a></div>
-                        <div class="aba-guia guia2"><a href="#" onclick="selecionaAba('.guia2 a');"><i class="fa fa-clock-o"></i> Horário</a></div>
-                    </div>
-                    <div class="group">
-                        <div class="aba-guia guia3"><a href="#" onclick="selecionaAba('.guia3 a');"><i class="fa fa-bell"></i> Avançado</a></div>
-                        <div class="aba-guia guia4"><a href="#" onclick="selecionaAba('.guia4 a');"><i class="fa fa-calendar"></i> Agendado</a></div>
-                    </div>
-                </div>-->
+                <!--                <div id="abas">
+                                    <div class="group">
+                                        <div class="aba-guia guia1"><a href="#" onclick="selecionaAba('.guia1 a');"><i class="fa fa-user"></i> Tutor</a></div>
+                                        <div class="aba-guia guia2"><a href="#" onclick="selecionaAba('.guia2 a');"><i class="fa fa-clock-o"></i> Horário</a></div>
+                                    </div>
+                                    <div class="group">
+                                        <div class="aba-guia guia3"><a href="#" onclick="selecionaAba('.guia3 a');"><i class="fa fa-bell"></i> Avançado</a></div>
+                                        <div class="aba-guia guia4"><a href="#" onclick="selecionaAba('.guia4 a');"><i class="fa fa-calendar"></i> Agendado</a></div>
+                                    </div>
+                                </div>-->
 
                 <form method="post" action="" name="form_cad_horario">
                     <?php include_once './aba_monitor.php'; ?>
@@ -49,6 +49,9 @@ $pag = "cad";
         ?>
         <script src="./functionsJS/tutor.js"></script>
         <script type="text/javascript" src="js/valida_hora.js"></script>
+        <script>
+            $('.form-mask').mask('99:99');
+        </script>
     </body>
 
 </html>

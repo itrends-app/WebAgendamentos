@@ -32,13 +32,13 @@
                                 <input type="checkbox" name="seg" value="seg"> seg:
                             </td>
                             <td>
-                                <input type="text" name="seg_ini" class=form-control>
+                                <input type="text" name="seg_ini" class="form-control form-mask">
                             </td>
                             <td width="30">
                                 até
                             </td>
                             <td>
-                                <input type="text" name="seg_fim" class="form-control" >
+                                <input type="text" name="seg_fim" class="form-control form-mask" >
                             </td>
                         </tr>
 
@@ -47,13 +47,13 @@
                                 <input type="checkbox" name="ter" value="ter"> ter:
                             </td>
                             <td width="70">
-                                <input type="text" name="ter_ini" class="form-control">
+                                <input type="text" name="ter_ini" class="form-control form-mask">
                             </td>
                             <td width="30">
                                 até
                             </td>
                             <td width="70">
-                                <input type="text" name="ter_fim" class="form-control">
+                                <input type="text" name="ter_fim" class="form-control form-mask">
                             </td>
                         </tr>
 
@@ -62,13 +62,13 @@
                                 <input type="checkbox" name="qua" value="qua"> qua:
                             </td>
                             <td width="70">
-                                <input type="text" name="qua_ini" class="form-control">
+                                <input type="text" name="qua_ini" class="form-control form-mask">
                             </td>
                             <td width="30">
                                 até
                             </td>
                             <td width="70">
-                                <input type="text" name="qua_fim" class="form-control">
+                                <input type="text" name="qua_fim" class="form-control form-mask">
                             </td>
                         </tr>
 
@@ -77,13 +77,13 @@
                                 <input type="checkbox" name="qui" value="qui"> qui:
                             </td>
                             <td width="70">
-                                <input type="text" name="qui_ini" class="form-control">
+                                <input type="text" name="qui_ini" class="form-control form-mask">
                             </td>
                             <td width="30">
                                 até
                             </td>
                             <td width="">
-                                <input type="text" name="qui_fim" class="form-control">
+                                <input type="text" name="qui_fim" class="form-control form-mask">
                             </td>
                         </tr>
 
@@ -92,13 +92,13 @@
                                 <input type="checkbox" name="sex" value="sex"> sex:
                             </td>
                             <td width="70">
-                                <input type="text" name="sex_ini" class="form-control">
+                                <input type="text" name="sex_ini" class="form-control form-mask">
                             </td>
                             <td width="30">
                                 até
                             </td>
                             <td width="70">
-                                <input type="text" name="sex_fim" class="form-control">
+                                <input type="text" name="sex_fim" class="form-control form-mask">
                             </td>
                         </tr>
 
@@ -107,13 +107,13 @@
                                 <input type="checkbox" name="sab" value="sab"> sáb:
                             </td>
                             <td width="70">
-                                <input type="text" name="sab_ini" class="form-control">
+                                <input type="text" name="sab_ini" class="form-control form-mask">
                             </td>
                             <td width="30">
                                 até
                             </td>
                             <td width="70">
-                                <input type="text" name="sab_fim" class="form-control">
+                                <input type="text" name="sab_fim" class="form-control form-mask">
                             </td>
                         </tr>
 
@@ -122,13 +122,13 @@
                                 <input type="checkbox" name="dom" value="dom"> dom:
                             </td>
                             <td width="85">
-                                <input type="text" name="dom_ini" class="form-control">
+                                <input type="text" name="dom_ini" class="form-control form-mask">
                             </td>
                             <td width="45">
                                 até
                             </td>
                             <td width="70">
-                                <input type="text" name="dom_fim" class="form-control">
+                                <input type="text" name="dom_fim" class="form-control form-mask">
                             </td>
                         </tr>
 

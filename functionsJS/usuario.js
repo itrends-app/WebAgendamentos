@@ -48,8 +48,8 @@ function cadastrarUsuario() {
             }
         });
     } else {
-        $('.mensagem span').html('Preencha todos os campos!');
-        $('.mensagem').css('display', 'block').addClass('bg-red-60');
+        $('.alert').addClass('alert-danger').fadeIn(500);
+        $('.alert .alert-msg').html('Por favor, preencha os campos corretamente!');
     }
 }
 function validaCampos() {
