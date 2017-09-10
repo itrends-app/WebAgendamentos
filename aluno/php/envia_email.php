@@ -6,8 +6,11 @@ include_once './pega_ultimo_agendamento.php';
 $email = $_POST["email"];//pega email do aluno
 $monitor_id = $_SESSION['monitor_selecionado'];
 
+$header = "<div style='width:100%;padding:20px 0;color:#fff;font-size:20px;background-color:#232323;text-align:center;'>WebAgendamentos</div>";
+
+
 //Mensagem que o sistema irá enviar para o aluno da disciplina
-$mensagem = "<div style='width:100%;height:60px;color:#fff;font-size:20px;background-color:#000;'>TESTE</div><h3>Olá, você confirmou a sua presença no encontro de monitoria. <br>Categoria: " . utf8_encode($_SESSION['nome_categoria']) . ""
+$mensagem = $header."<h3>Olá, você confirmou a sua presença no encontro de monitoria. <br>Categoria: " . utf8_encode($_SESSION['nome_categoria']) . ""
         . "<br>Curso: " . utf8_encode($_SESSION['disciplina']) . "<br>Monitor: " . $_SESSION['monitor_selecionado2'] . "<br>Agendado para: " . $_SESSION['dia_marcado'] . " de "
         . "" . $_SESSION['mes_marcado'] . " de " . $_SESSION['ano_marcado'] . " " . $_SESSION['hora_marcada'] . "<br><br><br>"
         . "<a href='http://neadteste.fcrs.edu.br/uniagendamentos/aluno/php/pega_dados_via_email.php?id=$lastid&email=$email'>Clique aqui para cancelar o agendamento</a><br>"

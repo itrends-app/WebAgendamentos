@@ -17,10 +17,8 @@ $stmt->execute();
 if ($stmt) {
 
     include_once './envia_email.php';
-    echo "<div> "
-    . "<i class='fa fa-check fa-2x c-green'></i> Agendamento realizado com sucesso!</div>";
-    echo "<div class='mg-top-10'></div>";
-    echo "<a href='horarios.php'><input type='button' value='Continuar' class='button button-orange wdt-125 hgt-35'></a>";
+    $_SESSION['confirm'] = true;
+    header('location:../confirmaragendamento.php');
 } else {
     echo "<i class='fa fa-close fa-2x c-red'></i> Erro ao tentar confirmar o agendamento. Por favor entre em contato com o administrador do sistema!";
     echo "<div class='mg-top-10'></div>";

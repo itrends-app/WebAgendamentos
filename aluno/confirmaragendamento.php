@@ -12,9 +12,37 @@ include_once('../php/conexao.php');
         include_once('./imports/import_menu.php');
         ?>
         <div class="container-fluid">
-            <section class="main-content">
-                <div class="title">Confirmar Agendamento</div>
 
+            <!--MODAL DE CONFIRMAÇÃO DE EXCLUSÃO-->
+            <div class="modal fade" id="loading-modal" tabindex="-1" data-backdrop="static" role="dialog">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                            <h4 class="modal-title"><strong>Aguarde... </strong></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="h5"><center><img src="./images/ajax-loader.gif" alt="loading"></center></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--FIM DO MODAL-->
+
+            <section class="main-content">
+                <!--MENSAGEM DE CONFIRMAÇÃO-->
+                <?php
+                if (isset($_SESSION['confirm'])) {
+                ?>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        Agendamento confirmado com sucesso!
+                    </div>
+                <?php
+                }
+                ?>
+                <!--FIM DA MENSAGEM-->
+                <div class="title">Confirmar Agendamento</div>
                 <form id="form-confirm" name="form_confirm" method="post" action="./php/SalvaAgendamento.php" autocomplete="off">
                     <div class="row">
                         <div class="col-sm-6">
@@ -33,8 +61,8 @@ include_once('../php/conexao.php');
                     <br>
                     <div class="panel panel-default">
                         <div class="panel-footer">
-                            <a href="horarios.php"><input type="button" value="Cancelar" class="btn btn-danger btn-mob"></a>
-                            <input type="submit" value="Confirmar" class="btn btn-success btn-mob">
+                            <input type="submit" value="Confirmar" class="btn btn-success btn-mob" data-toggle="modal" data-target="#loading-modal" <?php echo (isset($_SESSION['confirm'])) ? 'disabled' : ''; ?>>
+                            <a href="horarios.php"><input type="button" value="<?php echo (isset($_SESSION['confirm'])) ? 'Voltar' : 'Cancelar'; ?>" class="btn btn-danger btn-mob"></a>
                         </div>
                     </div>
                 </form>

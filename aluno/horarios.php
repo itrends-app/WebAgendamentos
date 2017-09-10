@@ -16,6 +16,8 @@ $semana = array(
     'en' => array('/Sun/', '/Mon/', '/Tue/', '/Wed/', '/Thu/', '/Fri/', '/Sat/', '/Jan/', '/Feb/', '/Mar/', '/Apr/', '/May/', '/Jun/', '/Jul/', '/Aug/', '/Sep/', '/Oct/', '/Nov/', '/Dec/'),
     'short' => array('Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez')
 );
+unset($_SESSION['confirm']);
+$pag = 'opt';
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +30,11 @@ $semana = array(
         ?>
         <div class="container-fluid">
             <section class="main-content">
+                <div class="title">Agendar Horário de Tutoria</div>
+                <div class="alert ocultar" role="alert">
+                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="alert-msg"></span>
+                </div>
                 <center>
                     <div class="grade1">
                         <?php include_once './grade_um.php'; ?>
@@ -59,98 +66,55 @@ $semana = array(
 
             </section>
         </div>
-        <?php include_once('./imports/import_footer.php');?>
+        <?php include_once('./imports/import_footer.php'); ?>
+        <script src="./functionsJS/agendamento.js"></script>
+        <script>
+            function pintar(dia, num, dia_atual) {
+
+                $(".dia1").css("background-color", "#777");
+                $(".dia1").removeClass("slt");
+                $(dia).css("background-color", "#eb6c05");
+                $(dia).addClass("slt");
+                var nome_dia = $('.slt').text();
+
+                if (nome_dia.indexOf("Seg") !== -1) {
+                    $(".ter, .qua, .qui, .sex, .sab, .dom").css("display", "none");
+                    $(".seg").css("display", "inherit");
+                } else if (nome_dia.indexOf("Ter") !== -1) {
+                    $(".seg, .qua, .qui, .sex, .sab, .dom").css("display", "none");
+                    $(".ter").css("display", "inherit");
+                } else if (nome_dia.indexOf("Qua") !== -1) {
+                    $(".seg, .ter, .qui, .sex, .sab, .dom").css("display", "none");
+                    $(".qua").css("display", "inherit");
+                } else if (nome_dia.indexOf("Qui") !== -1) {
+                    $(".seg, .ter, .qua, .sex, .sab, .dom").css("display", "none");
+                    $(".qui").css("display", "inherit");
+                } else if (nome_dia.indexOf("Sex") !== -1) {
+                    $(".seg, .ter, .qua, .qui, .sab, .dom").css("display", "none");
+                    $(".sex").css("display", "inherit");
+                } else if (nome_dia.indexOf("Sab") !== -1) {
+                    $(".seg, .ter, .qua, .qui, .sex, .dom").css("display", "none");
+                    $(".sab").css("display", "inherit");
+                } else if (nome_dia.indexOf("Dom") !== -1) {
+                    $(".seg, .ter, .qua, .qui, .sex, .sab").css("display", "none");
+                    $(".dom").css("display", "inherit");
+                }
+                var mes_marcado;
+
+                if (num > dia_atual) {
+                    mes_marcado = "<?php echo $mes[intval(date('m', strtotime($data_atual_servidor)))]; ?>";
+                    document.form_horarios.mes_num.value = "<?php echo date('m'); ?>";
+                } else {
+                    mes_marcado = "<?php echo (intval(date('m')) == 12) ? 'Janeiro' : $mes[intval(date('m') + 1)]; ?>";
+                    document.form_horarios.mes_num.value = "<?php echo (intval(date('m')) == 12) ? 01 : intval(date('m')) + 1; ?>";
+                }
+                if (num > 9) {
+                    document.form_horarios.dia_marcado.value = num;
+                } else {
+                    document.form_horarios.dia_marcado.value = "0" + num;
+                }
+                document.form_horarios.mes_marcado.value = mes_marcado;
+            }
+        </script>
     </body>
 </html>
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $('.grade2').fadeOut(0);
-        $('.proximo').click(function () {
-            var cont = 2;
-            if (cont === 2) {
-                $('.grade1').css("display", "none");
-                $('.grade2').css("display", "block");
-            }
-        });
-
-        $('.anterior').click(function () {
-            var cont = 1;
-            if (cont === 1) {
-                $('.grade2').css("display", "none");
-                $('.grade1').css("display", "block");
-            }
-        });
-
-        $('.cad_horario').click(function () {
-            var str = $(this).text();
-            document.form_horarios.hora_marcada.value = str.replace(/\s/g, '');
-
-            var dados = $("#form-horario").serialize();
-            $.ajax({
-                type: 'post',
-                dataType: 'html',
-                url: './php/armazena_dados.php',
-                data: dados,
-                success: function (dados) {
-                    if (dados === "ok") {
-                        window.location.href = "confirmar_agendamento.php";
-                    } else {
-                        $('.mensagem span').html('Não há mais vagas disponíveis neste horário, por favor selecione um novo horário!');
-                        $('.mensagem').css('display', 'block').addClass('bg-red-60').css('text-align', 'left');
-                    }
-                }
-            });
-        });
-    });
-
-    function pintar(dia, num, dia_atual) {
-
-        $(".dia1").css("background-color", "#777");
-        $(".dia1").removeClass("slt");
-        $(dia).css("background-color", "#eb6c05");
-        $(dia).addClass("slt");
-        var nome_dia = $('.slt').text();
-
-        if (nome_dia.indexOf("Seg") !== -1) {
-            $(".ter, .qua, .qui, .sex, .sab, .dom").css("display", "none");
-            $(".seg").css("display", "inherit");
-        } else if (nome_dia.indexOf("Ter") !== -1) {
-            $(".seg, .qua, .qui, .sex, .sab, .dom").css("display", "none");
-            $(".ter").css("display", "inherit");
-        } else if (nome_dia.indexOf("Qua") !== -1) {
-            $(".seg, .ter, .qui, .sex, .sab, .dom").css("display", "none");
-            $(".qua").css("display", "inherit");
-        } else if (nome_dia.indexOf("Qui") !== -1) {
-            $(".seg, .ter, .qua, .sex, .sab, .dom").css("display", "none");
-            $(".qui").css("display", "inherit");
-        } else if (nome_dia.indexOf("Sex") !== -1) {
-            $(".seg, .ter, .qua, .qui, .sab, .dom").css("display", "none");
-            $(".sex").css("display", "inherit");
-        } else if (nome_dia.indexOf("Sab") !== -1) {
-            $(".seg, .ter, .qua, .qui, .sex, .dom").css("display", "none");
-            $(".sab").css("display", "inherit");
-        } else if (nome_dia.indexOf("Dom") !== -1) {
-            $(".seg, .ter, .qua, .qui, .sex, .sab").css("display", "none");
-            $(".dom").css("display", "inherit");
-        }
-        var mes_marcado;
-
-        if (num > dia_atual) {
-            mes_marcado = "<?php echo $mes[intval(date('m', strtotime($data_atual_servidor)))]; ?>";
-            document.form_horarios.mes_num.value = "<?php echo date('m'); ?>";
-        } else {
-            mes_marcado = "<?php echo (intval(date('m')) == 12) ? 'Janeiro' : $mes[intval(date('m') + 1)]; ?>";
-            document.form_horarios.mes_num.value = "<?php echo (intval(date('m')) == 12) ? 01 : intval(date('m')) + 1; ?>";
-        }
-        if (num > 9) {
-            document.form_horarios.dia_marcado.value = num;
-        } else {
-            document.form_horarios.dia_marcado.value = "0" + num;
-        }
-        document.form_horarios.mes_marcado.value = mes_marcado;
-    }
-
-
-</script>
-
