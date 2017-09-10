@@ -62,31 +62,7 @@
     display: inline-block;
     margin:20px 10px 10px 10px;
 }
-.seg {
-    display: none;
-    text-align: center;
-}
-.ter {
-    display: none;
-    text-align: center;
-}
-.qua {
-    display: none;
-    text-align: center;
-}
-.qui {
-    display: none;
-    text-align: center;
-}
-.sex {
-    display: none;
-    text-align: center;
-}
-.sab {
-    display: none;
-    text-align: center;
-}
-.dom {
+.seg, .ter, .qua, .qui, .sex, .sab, .dom {
     display: none;
     text-align: center;
 }
