@@ -2,6 +2,7 @@ function selecionarMonitor(monitor) {
     location.href = "./php/seleciona_monitor.php?monitor=" + monitor;
 }
 function listaMonitores(id) {
+    $('.monitores').empty();
     $.ajax({
         type: 'post',
         dataType: 'json',
@@ -12,7 +13,7 @@ function listaMonitores(id) {
 
             } else {
                 for (var i = 0; i < dados.length; i++) {
-                    $('.monitores').html('<div class="monitor"><a href="#" onclick="selecionarMonitor(' + dados[i].monitor_id + ');">' + dados[i].firstname + '</a></div>');
+                    $('.monitores').append('<div class="monitor"><a href="#" onclick="selecionarMonitor(' + dados[i].monitor_id + ');">' + dados[i].firstname + '</a></div>');
                 }
             }
         }

@@ -1,6 +1,6 @@
 <footer>
     <center>
-        <img src="images/Logo_UNICATÓLICA_Branco.png" alt="" class="logo-uni">
+        <img src="./images/Logo_NEAD_Branco.png" alt="logo-cead" class="logo-uni">
         <h5>© 2017 - CEAD - Coordenação de Educação a Distância. Todos os direitos reservados.</h5>
     </center>
 </footer>

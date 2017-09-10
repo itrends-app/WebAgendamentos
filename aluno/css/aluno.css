@@ -180,7 +180,7 @@
     color: #555;
 }
 .monitores {
-    width: 80%;
+    width: 100%;
     min-height: 250px;
     max-height: 500px;
     display: inline-block;
@@ -189,32 +189,22 @@
     overflow-y: auto; 
 }
 .monitor {
-
+    width: 100% !important;
 }
 .monitor a{
-    width: 90%;
-    display: inline-block;
+    display: block;
     margin-top: 10px;
-    background-color: #fff;
+    background-color: #ccc;
     color:#555;
-    padding: 25px 0;
+    padding: 18px 0;
     border-radius: 4px;
+    text-decoration: none;
 }
 .monitor a:hover {
-    background-color: rgba(255,255,254,0.5);
-    color: #000;
+    background-color: #eb6c05;
+    color: #fff;
 }
 @media(max-width:480px) {
-    .monitor a{
-        width: 90%;
-        display: inline-block;
-        margin-top: 10px;
-        background-color: #fff;
-        color:#555;
-        padding: 25px 0;
-        border-radius: 4px;
-        font-size: 14px;
-    }
 }
 @media(max-width:760px) {
     .logoff a{
@@ -232,4 +222,9 @@
     background-color: #eb6c05;
     padding: 10px;
     box-shadow: -1px 2px 5px 0px #888;
+}
+@media(min-width:768px) {
+    .monitor a{
+        width: 400px;
+    }
 }
