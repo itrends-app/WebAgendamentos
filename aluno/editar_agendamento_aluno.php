@@ -47,28 +47,20 @@ $_SESSION['disciplina'] = $con['fullname'];
 $_SESSION['nome_categoria'] = $con['name'];
 ?>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-        <title><?php include_once '../layout/AplicationName.php'; ?></title>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/menu.css">
-        <link rel="stylesheet" href="../css/bootstrap.css">
-        <link rel="stylesheet" href="../css/componentes.css">
-        <link rel="stylesheet" href="css/aluno.css">
-        <link rel="stylesheet" href="../css/menu-mobile.css" media="(max-width:760px)">
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
-    </head>
+    <?php include_once('./imports/import_head.php'); ?>
     <body>
-        <div class="container">
-            <?php
-            include_once '../layout/header.php';
-            include_once './btn-sair.php';
-            include_once './layout/menu.php';
-            ?>
-            <center>
-                <div class="corpo">
+        <?php
+        include_once('./imports/import_header.php');
+        include_once('./imports/import_menu.php');
+        ?>
+        <div class="container-fluid">
+            <section class="main-content">
+                <div class="title">Reagendar Horário de Tutoria</div>
+                <div class="alert ocultar" role="alert">
+                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="alert-msg"></span>
+                </div>
+                <center>
                     <?php
                     if ($data_atualizada >= $data_agendada) {
                         echo '<div class="form-confirmacao">';
@@ -79,12 +71,6 @@ $_SESSION['nome_categoria'] = $con['name'];
                         echo '</div>';
                     } else {
                         ?>
-                        <!--Mensagem de retorno-->
-                        <div class="mensagem">
-                            <span class="fs fs-16 c-white"></span>
-                            <a href="#" onclick="fecharMsgErro();" style="float:right;"><i class="fa fa-close c-white"></i></a>
-                        </div>
-
                         <!--primeira grade de horários-->
                         <div class="grade1">
                             <?php
@@ -117,20 +103,16 @@ $_SESSION['nome_categoria'] = $con['name'];
                         <div class="horario1">
                             <?php include_once('./grade_horarios.php'); ?>
                         </div>
-                    <?php }?>
-                    </div>
-
+                    <?php } ?>
                 </center>
-                <?php
-                    
-                include_once '../layout/footer.php';
-                ?>
+            </section>
+        </div>
 
-            </div>
+        <?php include_once('./imports/import_footer.php');?>
+        <!--<script src="functionsJS/agendamento.js"></script>-->
+    </body>
+</html>
 
-        </body>
-    </html>
-   
 <script type="text/javascript">
     $(document).ready(function () {
         $('.cad_horario').click(function () {
@@ -147,8 +129,8 @@ $_SESSION['nome_categoria'] = $con['name'];
                     if (dados === "ok") {
                         location.href = "confirmar_reagendamento.php";
                     } else {
-                        $('.mensagem span').html('Não há mais vagas disponíveis neste horário, por favor selecione um novo horário!');
-                        $('.mensagem').css('display', 'block').addClass('bg-red-60').css('text-align', 'left');
+                        $('.alert').addClass('alert-danger').fadeIn(500);
+                    $('.alert .alert-msg').html('Não há mais vagas disponíveis neste horário, por favor selecione um novo horário!');
                     }
                 }
             });
