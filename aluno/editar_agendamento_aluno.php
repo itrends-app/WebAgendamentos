@@ -60,17 +60,19 @@ $_SESSION['nome_categoria'] = $con['name'];
                     <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <span class="alert-msg"></span>
                 </div>
+
                 <center>
                     <?php
                     if ($data_atualizada >= $data_agendada) {
-                        echo '<div class="form-confirmacao">';
-
-                        echo '<i class="fa fa-warning fa-2x c-yellow"></i> ';
-                        echo '<span class="fs fs-18 c-black"> Período para reagendar o horário expirou!</span>';
-
-                        echo '</div>';
+                        echo '<div class="alert alert-danger"> ';
+                        echo '<strong>Período para reagendar o horário expirou!</strong>';
+                        echo '</div><br>';
+                        echo '<a href="consagendamentos.php"><input type="button" class="btn btn-danger" value="Voltar"></a>';
                     } else {
                         ?>
+                        <div class="alert alert-warning" role="alert">
+                            <strong>Agendamento Anterior: </strong> <?php echo date('d/m/Y H:i', strtotime($data_agendada)); ?>
+                        </div>
                         <!--primeira grade de horários-->
                         <div class="grade1">
                             <?php
@@ -108,7 +110,7 @@ $_SESSION['nome_categoria'] = $con['name'];
             </section>
         </div>
 
-        <?php include_once('./imports/import_footer.php');?>
+        <?php include_once('./imports/import_footer.php'); ?>
         <!--<script src="functionsJS/agendamento.js"></script>-->
     </body>
 </html>
@@ -130,7 +132,7 @@ $_SESSION['nome_categoria'] = $con['name'];
                         location.href = "confirmar_reagendamento.php";
                     } else {
                         $('.alert').addClass('alert-danger').fadeIn(500);
-                    $('.alert .alert-msg').html('Não há mais vagas disponíveis neste horário, por favor selecione um novo horário!');
+                        $('.alert .alert-msg').html('Não há mais vagas disponíveis neste horário, por favor selecione um novo horário!');
                     }
                 }
             });
