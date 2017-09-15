@@ -20,7 +20,27 @@ $mes_atual = intval(date('m'));
         include_once('./imports/import_menu.php');
         ?>
         <div class="container-fluid">
+
+
+
             <section class="main-content">
+
+                <form method="post" class="">
+                    <input type="text" id="val1" value="<?php echo $jan; ?>">
+                    <input type="text" id="val2" value="<?php echo $fev; ?>">
+                    <input type="text" id="val3" value="<?php echo $marco; ?>">
+                    <input type="text" id="val4" value="<?php echo $abril; ?>">
+                    <input type="text" id="val5" value="<?php echo $maio; ?>">
+                    <input type="text" id="val6" value="<?php echo $junho; ?>">
+                    
+                    <input type="text" id="val7" value="<?php echo $julho; ?>">
+                    <input type="text" id="val8" value="<?php echo $agosto; ?>">
+                    <input type="text" id="val9" value="<?php echo $setembro; ?>">
+                    <input type="text" id="val10" value="<?php echo $outubro; ?>">
+                    <input type="text" id="val11" value="<?php echo $novembro; ?>">
+                    <input type="text" id="val12" value="<?php echo $dezembro; ?>">
+                </form>
+
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fa fa-area-chart"></i>
@@ -48,7 +68,7 @@ $mes_atual = intval(date('m'));
         <!-- Custom scripts for this template -->
         <script src="./dashboard/js/sb-admin.js"></script>
 
-        
+
 
     </body>
 </html>

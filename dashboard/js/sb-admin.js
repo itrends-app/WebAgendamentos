@@ -69,6 +69,10 @@ var mesExt1, mesExt2, mesExt3,mesExt4,mesExt5, mesExt6;
 
 if(mesAtual == 9) {mesExt1 = "Janeiro"; mesExt2 = "Fevereiro"; mesExt3 = "Março"; mesExt4 = "Abril"; mesExt5 = "Maio"; mesExt6 = "Junho";} 
 if(mesAtual == 2) {mesExt1 = "Fevereiro"; mesExt2 = "Março"; mesExt3 = "Abril";}
+
+var val1 = $('#val9').val();
+
+alert(set);
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -85,7 +89,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 20,
       pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+      data: [set,0,0,0,0,0],
     }],
   },
   options: {
@@ -104,7 +108,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 40000,
+          max: 40,
           maxTicksLimit: 5
         },
         gridLines: {
