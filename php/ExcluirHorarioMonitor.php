@@ -1,7 +1,7 @@
 <?php
-
+session_start();
 try {
-    include_once './conexao.php';
+    include_once ('./conexao.php');
 
     $st = $pdo->prepare("select id from tb_agendamentos where monitor_id = :id_monitor");
     $st->bindValue(":id_monitor", $_POST['monitor']);

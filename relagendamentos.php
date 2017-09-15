@@ -8,6 +8,7 @@ try {
 } catch (Exception $ex) {
     echo $ex->getMessage();
 }
+$pag = "rel";
 ?>
 <html>
     <?php include_once('./imports/import_head.php'); ?>
@@ -22,13 +23,13 @@ try {
 
                 <form method="post" target="_blank" action="./relatorios/RelAgendamentos.php">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Data Inicial:</label>
                                 <input type="date" name="dt_inicial" class="form-control"> 
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Data Final:</label>
                                 <input type="date" name="dt_final" class="form-control"> 
@@ -36,7 +37,7 @@ try {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Categoria: </label>
                                 <select name="categoria" class="form-control" onchange="escolheCurso(this.value);">
@@ -56,7 +57,7 @@ try {
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Curso: </label>
                                 <select name="curso" id="sel-curso" class="form-control">
@@ -76,21 +77,7 @@ try {
             </section>
         </div>
         <?php include_once('./imports/import_footer.php'); ?>
+        <script src="./functionsJS/agendamento.js"></script>
     </body>
 </html>
-<script type="text/javascript">
-    function escolheCurso(categoria) {
-        $("#sel-curso").empty();
-        $.ajax({
-            type: 'post',
-            dataType: 'html',
-            url: './php/select_cursos.php',
-            data: {
-                cat: categoria
-            },
-            success: function (dados) {
-                $("#sel-curso").append('<option value="">Selecione um</option>' + dados);
-            }
-        });
-    }
-</script>
+

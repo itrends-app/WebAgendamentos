@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-//include_once './php/SessaoUsuario.php';
-//if ($_SESSION['nivel_acesso'] == 2) {
-//    header("Location:403.php");
-//}
-//unset($_SESSION['usuario_selecionado']);
+include_once './php/SessaoUsuario.php';
+if ($_SESSION['nivel_acesso'] == 2) {
+    header("Location:403.php");
+}
+unset($_SESSION['usuario_selecionado']);
 $pag = 'con';
 ?>
 <html>

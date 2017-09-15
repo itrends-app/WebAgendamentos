@@ -16,8 +16,8 @@
                 <li><a href="consusuarios.php">Usuários</a></li>
             </ul>
         </li>
-        <li class="have-children"><a href="#"><span class="fa fa-flag"></span>Relatórios</a>
-            <ul>
+        <li class="have-children <?php echo ($pag == 'rel')?'active':'';?>"><a href="#"><span class="fa fa-flag"></span>Relatórios</a>
+            <ul <?php echo ($pag == 'rel')?'style="display:block"':'';?>>
                 <li><a href="relagendamentos.php">Agendamentos</a></li>
             </ul>
         </li>

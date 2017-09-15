@@ -7,147 +7,48 @@ include_once './php/QtdeAgendamentosPorMes.php';
 $pag = "home";
 $mes_atual = intval(date('m'));
 ?>
-<html>
+<html lang="pt">
+    <head>
+        <link href="./dashboard/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./dashboard/css/sb-admin.css" rel="stylesheet">
+        <link href="./dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    </head>
     <?php include_once('./imports/import_head.php'); ?>
     <body>
-        <?php 
-        include_once('./imports/import_header.php'); 
+        <?php
+        include_once('./imports/import_header.php');
         include_once('./imports/import_menu.php');
         ?>
         <div class="container-fluid">
             <section class="main-content">
-                <div id="columnchart_values" class="grafico-home"></div>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-area-chart"></i>
+                        Area Chart Example
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myAreaChart" width="100%" height="30"></canvas>
+                    </div>
+                    <div class="card-footer small text-muted">
+                        Updated yesterday at 11:59 PM
+                    </div>
+                </div>
+                <!--<div id="columnchart_values" class="grafico-home"></div>-->
             </section>
         </div>
         <?php include_once('./imports/import_footer.php'); ?>
+        <script src="./dashboard/vendor/jquery/jquery.min.js"></script>
+        <script src="./dashboard/vendor/popper/popper.min.js"></script>
+        <script src="./dashboard/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="./dashboard/vendor/chart.js/Chart.min.js"></script>
+        <script src="./dashboard/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="./dashboard/vendor/datatables/dataTables.bootstrap4.js"></script>
 
+        <!-- Custom scripts for this template -->
+        <script src="./dashboard/js/sb-admin.js"></script>
 
-        <script type="text/javascript">
-            google.charts.load("current", {packages: ['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-            function drawChart() {
-                var mes_atual = <?php echo $mes_atual; ?>;
-                var data;
-                var janeiro = <?php echo $jan; ?>;
-                var fevereiro = <?php echo $fev; ?>;
-                var marco = <?php echo $marco; ?>;
-                var abril = <?php echo $abril; ?>;
-                var maio = <?php echo $maio; ?>;
-                var junho = <?php echo $junho; ?>;
-                var julho = <?php echo $julho; ?>;
-                var agosto = <?php echo $agosto; ?>;
-                var setembro = <?php echo $setembro; ?>;
-                var outubro = <?php echo $outubro; ?>;
-                var novembro = <?php echo $novembro; ?>;
-                var dezembro = <?php echo $dezembro; ?>;
-
-
-                if (mes_atual === 1) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Nov", novembro, "#ec6907"],
-                        ["Dez", dezembro, "#ec6907"],
-                        ["Jan", janeiro, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 2) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Dez", dezembro, "#ec6907"],
-                        ["Jan", janeiro, "#ec6907"],
-                        ["Fev", fevereiro, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 3) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Jan", janeiro, "#ec6907"],
-                        ["Fev", fevereiro, "#ec6907"],
-                        ["Mar", marco, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 4) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Fev", fevereiro, "#ec6907"],
-                        ["Mar", marco, "#ec6907"],
-                        ["Abr", abril, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 5) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Mar", marco, "#ec6907"],
-                        ["Abr", abril, "#ec6907"],
-                        ["Mai", maio, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 6) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Abr", abril, "#ec6907"],
-                        ["Mai", maio, "#ec6907"],
-                        ["Junho", junho, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 7) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Mai", maio, "#ec6907"],
-                        ["Jun", junho, "#ec6907"],
-                        ["Jul", julho, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 8) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Jun", junho, "#ec6907"],
-                        ["Jul", julho, "#ec6907"],
-                        ["Ago", agosto, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 9) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Jul", julho, "#ec6907"],
-                        ["Ago", agosto, "#ec6907"],
-                        ["Set", setembro, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 10) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Ago", agosto, "#ec6907"],
-                        ["Set", setembro, "#ec6907"],
-                        ["Out", outubro, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 11) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Set", setembro, "#ec6907"],
-                        ["Out", outubro, "#ec6907"],
-                        ["Nov", novembro, "#ec6907"]
-                    ]);
-                } else if (mes_atual === 12) {
-                    data = google.visualization.arrayToDataTable([
-                        ["Element", "Qtde.", {role: "style"}],
-                        ["Out", outubro, "#ec6907"],
-                        ["Nov", novembro, "#ec6907"],
-                        ["Dez", dezembro, "#ec6907"]
-                    ]);
-                }
-
-                var view = new google.visualization.DataView(data);
-                view.setColumns([0, 1,
-                    {calc: "stringify",
-                        sourceColumn: 1,
-                        type: "string",
-                        role: "annotation"},
-                    2]);
-
-                var options = {
-                    title: "Quantidade de agendamentos por mês",
-//            width: 600,
-//            height: 400,
-//            bar: {groupWidth: "60%"},
-                    legend: {position: "none"}
-                };
-                var chart = new google.visualization.LineChart(document.getElementById("columnchart_values"));
-                chart.draw(view, options);
-            }
-
-        </script>
+        
 
     </body>
 </html>
