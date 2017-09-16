@@ -1,7 +1,7 @@
 <?php
 include_once './php/valida_usuario.php';
 include_once('./php/hora_atual.php');
-include './php/DataHoraAtual.php';
+include('./php/DataHoraAtual.php');
 include_once('./php/mes_por_extenso.php');
 if (isset($_SESSION['monitor_selecionado'])) {
     if ($_SESSION['monitor_selecionado'] == "") {

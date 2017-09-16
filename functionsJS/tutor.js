@@ -26,9 +26,9 @@ $(document).ready(function () {
                 for (var i = 0; dados.length > i; i++) {
                     if (screen.width >= 720) {
                         $('#tabela').append('<tr><td>' + dados[i].username + '</td><td>' + dados[i].firstname + '</td><td>' + dados[i].email +
-                                '</td><td style="text-align:center"><a onclick="selecionar(' + dados[i].id + ');" href="#"><i class="fa fa-hand-pointer-o c-gray-50" title="Selecionar"></i></a> \n\
-                            <a onclick="editar(' + dados[i].id + ');" href="#"><i class="fa fa-gear c-gray-50" title="Editar"></i></a> \n\
-                            <a onclick="abrirDialogo(' + dados[i].id + ');" href="#"><i class="fa fa-trash c-red" title="Excluir"></i></a></td></tr>');
+                                '</td><td style="text-align:center"><a onclick="selecionar(' + dados[i].id + ');" href="#"><i class="material-icons md-dark" title="Selecionar">add</i></a> \n\
+                            <a onclick="editar(' + dados[i].id + ');" href="#"><i class="material-icons md-dark" title="Editar">settings</i></a> \n\
+                            <a onclick="abrirDialogo(' + dados[i].id + ');" href="#"><i class="material-icons md-dark-red" title="Excluir">delete_forever</i></a></td></tr>');
                     } else {
                         $('#tabela').append('<tr><td>' + dados[i].firstname + '</td><td style="text-align:center"><a onclick=selecionar(' + dados[i].id + '); href="#"><i class="fa fa-hand-pointer-o c-gray-50" title="Selecionar"></i></a> \n\
                             <a onclick="editar(' + dados[i].id + ');" href="#"><i class="fa fa-gear c-gray-50" title="Editar"></i></a> \n\

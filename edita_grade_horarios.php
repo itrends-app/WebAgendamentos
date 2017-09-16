@@ -1,6 +1,8 @@
 <?php
 $grade = $con['exibicao_grade'];
-$data_comparativa = $_SESSION['data_comp'];
+if (isset($_SESSION['data_comp'])) {
+    $data_comparativa = $_SESSION['data_comp'];
+}
 ?>
 <div class="seg">
     <div class="grade-horarios">

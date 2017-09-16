@@ -2,11 +2,11 @@
 <!--pagina admin-->
 <html>
     <?php
-//    include_once './php/SessaoUsuario.php';
-    $_SESSION['hora_marcada'] = "";
+    include_once './php/SessaoUsuario.php';
     include_once './aluno/php/mes_por_extenso.php';
     include_once('./php/conexao.php');
     include_once './php/DataHoraAtual.php';
+    $_SESSION['hora_marcada'] = "";
 
     $semana = array(
         'en' => array('/Sun/', '/Mon/', '/Tue/', '/Wed/', '/Thu/', '/Fri/', '/Sat/', '/Jan/', '/Feb/', '/Mar/', '/Apr/', '/May/', '/Jun/', '/Jul/', '/Aug/', '/Sep/', '/Oct/', '/Nov/', '/Dec/'),
@@ -24,7 +24,10 @@
     ?>
     <?php include_once('./imports/import_head.php'); ?>
     <body>
-        <?php include_once('./imports/import_header.php'); ?>
+        <?php 
+        include_once('./imports/import_header.php'); 
+        include_once('./imports/import_menu.php');
+        ?>
         <div class="container-fluid">
             <section class="main-content">
                 <div class="title">Editar Agendamento</div>
@@ -57,7 +60,7 @@
                 <center>
                     <div class="horarios" id="hour">
                         <?php
-//                                    include_once ('./php/conexao.php');
+                        include_once ('./php/conexao.php');
                         $st2 = $pdo->prepare("select * from tb_horarios_monitor hm, vw_usuarios us, vw_cursos c, vw_categorias cat where hm.monitor_id = :monitor and us.id = hm.monitor_id and c.id_course = hm.curso_id and c.category = cat.id_category");
                         $st2->bindValue(":monitor", $_SESSION['monitor_id']);
                         $st2->execute();
