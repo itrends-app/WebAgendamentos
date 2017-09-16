@@ -1,16 +1,26 @@
 <?php
 
-//número de agendamentos do mes de janeiro
-$st1 = $pdo->prepare("select count(id) as num from tb_agendamentos where str_to_date(data, '%Y-%m-%d') between str_to_date('2017-01-01', '%Y-%m-%d') and str_to_date('2017-01-31', '%Y-%m-%d')");
-$st1->execute();
-$rs_jan = $st1->fetch(PDO::FETCH_ASSOC);
-$jan = intval($rs_jan['num']);
+//verifica as datas iniciais e finais
+$mesAtual = date('m');
+$anoAtual = date('Y');
 
-//número de agendamentos do mes de fevereiro
-$st2 = $pdo->prepare("select count(id) as num from tb_agendamentos where str_to_date(data, '%Y-%m-%d') between str_to_date('2017-02-01', '%Y-%m-%d') and str_to_date('2017-02-29', '%Y-%m-%d')");
-$st2->execute();
-$rs_fev = $st2->fetch(PDO::FETCH_ASSOC);
-$fev = intval($rs_fev['num']);
+if ($mesAtual == "01") {
+    //número de agendamentos do mes de janeiro
+    $st1 = $pdo->prepare('select count(id) as num from tb_agendamentos where str_to_date(data,"%Y-%m-%d") between str_to_date("' . date('Y') . '-01-01", "%Y-%m-%d") and str_to_date("' . date('Y') . '-01-31", "%Y-%m-%d")');
+    $st1->execute();
+    $rs_jan = $st1->fetch(PDO::FETCH_ASSOC);
+    $jan = intval($rs_jan['num']);
+
+    //número de agendamentos do mes de fevereiro
+    $st2 = $pdo->prepare("select count(id) as num from tb_agendamentos where str_to_date(data, '%Y-%m-%d') between str_to_date('2017-02-01', '%Y-%m-%d') and str_to_date('2017-02-29', '%Y-%m-%d')");
+    $st2->execute();
+    $rs_fev = $st2->fetch(PDO::FETCH_ASSOC);
+    $fev = intval($rs_fev['num']);
+}
+
+
+
+
 
 //número de agendamentos do mes de março
 $st3 = $pdo->prepare("select count(id) as num from tb_agendamentos where str_to_date(data, '%Y-%m-%d') between str_to_date('2017-03-01', '%Y-%m-%d') and str_to_date('2017-03-31', '%Y-%m-%d')");
