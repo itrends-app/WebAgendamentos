@@ -30,7 +30,7 @@ include_once './php/valida_usuario.php';
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th class="text-center text-uppercase">Monitor</th>
+                                <th class="text-center text-uppercase">Nome do Tutor</th>
                                 <th class="text-center text-uppercase">Curso</th>
                                 <th class="text-center text-uppercase">Agendamento</th>
                                 <th class="text-center text-uppercase">Ações</th>

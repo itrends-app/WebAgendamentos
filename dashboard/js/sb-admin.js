@@ -138,6 +138,27 @@ if (mesAtual == 9) {
     mesExt4 = "Julho";
     mesExt5 = "Agosto";
     mesExt6 = "Setembro";
+} else if(mesAtual == 10) {
+    mesExt1 = "Maio";
+    mesExt2 = "Junho";
+    mesExt3 = "Julho";
+    mesExt4 = "Agosto";
+    mesExt5 = "Setembro";
+    mesExt6 = "Outubro";
+} else if(mesAtual == 11) {
+    mesExt1 = "Junho";
+    mesExt2 = "Julho";
+    mesExt3 = "Agosto";
+    mesExt4 = "Setembro";
+    mesExt5 = "Outubro";
+    mesExt6 = "Novembro";
+} else {
+    mesExt1 = "Junho";
+    mesExt2 = "Julho";
+    mesExt3 = "Setembro";
+    mesExt4 = "Outubro";
+    mesExt5 = "Novembro";
+    mesExt6 = "Dezembro";
 }
 
 var val1, val2, val3, val4, val5, val6;
@@ -176,6 +197,13 @@ if (mesAtual >= 6) {
     val4 = $('#val2').val();
     val5 = $('#val3').val();
     val6 = $('#val4').val();
+} else if(mesAtual == 5) {
+    val1 = $('#val12').val();
+    val2 = $('#val1').val();
+    val3 = $('#val2').val();
+    val4 = $('#val3').val();
+    val5 = $('#val4').val();
+    val6 = $('#val5').val();
 }
 //alert(set);
 var myLineChart = new Chart(ctx, {

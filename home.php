@@ -20,12 +20,8 @@ $mes_atual = intval(date('m'));
         include_once('./imports/import_menu.php');
         ?>
         <div class="container-fluid">
-
-
-
             <section class="main-content">
-
-                <form method="post" class="">
+                <form method="post" class="ocultar">
                     <input type="text" id="val1" value="<?php echo $jan; ?>">
                     <input type="text" id="val2" value="<?php echo $fev; ?>">
                     <input type="text" id="val3" value="<?php echo $marco; ?>">
@@ -40,7 +36,6 @@ $mes_atual = intval(date('m'));
                     <input type="text" id="val11" value="<?php echo $novembro; ?>">
                     <input type="text" id="val12" value="<?php echo $dezembro; ?>">
                 </form>
-
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fa fa-area-chart"></i>
