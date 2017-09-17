@@ -183,7 +183,7 @@ var myLineChart = new Chart(ctx, {
     data: {
         labels: [mesExt1, mesExt2, mesExt3, mesExt4, mesExt5, mesExt6],
         datasets: [{
-                label: "Sessions",
+                label: "Agend.",
                 lineTension: 0.3,
                 backgroundColor: "rgba(2,117,216,0.2)",
                 borderColor: "rgba(2,117,216,1)",
