@@ -11,4 +11,4 @@
 //    echo "Falha ao conectar: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 //}
 //
-$pdo = new PDO("mysql:host=localhost; dbname=gs", "root", "mastersql");
+$pdo = new PDO("mysql:host=localhost; dbname=sis_agenda", "root", "");
