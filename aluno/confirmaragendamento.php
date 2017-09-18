@@ -1,5 +1,5 @@
 <?php
-include_once './php/valida_usuario.php';
+include_once('./php/valida_usuario.php');
 require_once '../recaptchalib.php';
 include_once('../php/conexao.php');
 ?>

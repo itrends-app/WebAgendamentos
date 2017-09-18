@@ -22,7 +22,7 @@ $mensagem_tutor = "<h2>Aviso de reagendamento de monitoria: </h2><h3>Aluno: ".$a
         . $_SESSION['ano_marcado']." ".$_SESSION['hora_marcada']."<br>"
         . "Motivo: ".$_POST['motivo']."</h3>";
 
-require_once "../phpmailer/class.phpmailer.php";
+require_once "../../phpmailer/class.phpmailer.php";
 
 define('GUSER', 'arcs.si3@gmail.com'); // <-- Insira aqui o seu GMail
 define('GPWD', '22041996#$');  // <-- Insira aqui a senha do seu GMail
