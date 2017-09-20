@@ -59,4 +59,48 @@ $(document).ready(function () {
         });
     });
 });
-
+function buscarAgendamentosTutor() {
+    var data_ini = this.agenda.data_inicial.value;
+    var data_fim = this.agenda.data_final.value;
+    if (data_ini === "" || data_fim === "") {
+        $('.alert').addClass('alert-danger').fadeIn(500);
+        $('.alert .alert-msg').html("Por favor, preencha a data inicial e a data final!");
+    } else {
+        $('.alert').fadeOut(0);
+        $('#dados-agenda').empty();
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: './php/BuscarAgendamentos.php',
+            data: {
+                data_inicial: data_ini,
+                data_final: data_fim
+            },
+            success: function (dados) {
+                if (dados == 'null') {
+                    $('#dados-agenda').append('<tr><td colspan="4">Nenhum agendamento encontrado!</td></tr>');
+                } else {
+                    for (var i = 0; i < dados.length; i++) {
+                        $('#dados-agenda').append('<tr><td>' + dados[i].username + '</td><td>' + dados[i].firstname + '</td>\n\
+                                <td>' + formataData(dados[i].data) + '</td><td>' + dados[i].hora + '</td></tr>');
+                    }
+                }
+                footer();
+            }
+        });
+    }
+}
+function formataData(data) {
+    var dia = data.substring(8, 10);
+    var mes = data.substring(5, 7);
+    var ano = data.substring(0, 4);
+    return dia + "/" + mes + "/" + ano;
+}
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) >= milliseconds) {
+            break;
+        }
+    }
+}

@@ -157,6 +157,9 @@ footer .logo-uni {
     background-color: #ccc;
     color: #000;
 }
+.panel {
+    background-color: #dadada !important;
+}
 @media(min-width:480px) {
     .btn-mob {
         width: auto;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once './php/Sessao.php';
+$pag = 'opt';
 ?>
 <html>
     <?php include_once('./imports/import_head.php'); ?>

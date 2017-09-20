@@ -12,12 +12,14 @@ $stmt->bindValue(":data_final", $data_final);
 $stmt->bindValue(":monitor", $_SESSION['tutor_id']);
 $stmt->execute();
 
+$cont = 0;
 while($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $vetor[] = array_map('utf8_encode', $linha); 
+    $cont++;
 }
-if(json_encode($vetor) != null) {
+if($cont > 0) {
     echo json_encode($vetor);
 } else {
-    echo json_encode("teste");
+    echo 'null';
 }
 
