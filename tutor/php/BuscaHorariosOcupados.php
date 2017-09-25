@@ -11,6 +11,6 @@ if ($st) {
         $hora = $conn['hora'];
         $agendamento = $conn['id'];
         echo "<tr><td>".utf8_encode($conn['horario'])."</td><td>".$conn['num_alunos']."</td>";
-        echo "<td><a href='#' onclick=selecionarHorario('$data','$hora',$agendamento);><i class='fa fa-hand-pointer-o c-black'></i></a></td></tr>";
+        echo "<td class='text-center'><a href='#' onclick=selecionarHorario('$data','$hora',$agendamento);><i class='material-icons md-dark'>add</i></a></td></tr>";
     }
 } 
