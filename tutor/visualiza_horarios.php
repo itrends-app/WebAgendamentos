@@ -133,6 +133,7 @@ $pag = 'opt';
                     </tr>
 
                 </table>
+                <br>
                 <span class="fs fs-16">Tempo de Agendamento: <?php echo $con_busca['exibicao_grade']; ?> minutos</span>
             </section>
         </div>
