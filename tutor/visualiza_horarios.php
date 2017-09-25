@@ -134,7 +134,7 @@ $pag = 'opt';
 
                 </table>
                 <br>
-                <span class="fs fs-16">Tempo de Agendamento: <?php echo $con_busca['exibicao_grade']; ?> minutos</span>
+                <label class="text-uppercase">Tempo de Agendamento: <?php echo $con_busca['exibicao_grade']; ?> minutos</label>
             </section>
         </div>
         <?php include_once('./imports/import_footer.php');?>
