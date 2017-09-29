@@ -7,7 +7,7 @@
                 <li><a href="consulta_agendamentos.php">Agendamentos</a></li>
                 <li><a href="reagendar_horario.php">Reagendar</a></li>
                 <li><a href="visualiza_horarios.php">Grade de Horários</a></li>
-                <li><a href="#">Cadastrar Avaliação</a></li>
+                <li><a href="cadastrar_avaliacao.php">Cadastrar Avaliação</a></li>
             </ul>
         </li>
         <li class="have-children <?php echo ($pag == 'rel')?'active':'';?>"><a href="#"><span class="fa fa-flag"></span>Relatórios</a>

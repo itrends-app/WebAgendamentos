@@ -33,7 +33,7 @@
                 <div class="title">Editar Agendamento</div>
                 <div class="row">
                     <div class="col-md-12">
-                        <label class="text-capitalize">Agendado para:</label>
+                        <label class="text-capitalize">Agendamento Anterior:</label>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="ln-tracejada-1"></div>
                 <div class="mg-top-10"></div>
-                <span class="fs fs-18 c-gray-50">Mudar para:</span>
+                <label class="control-label">Mudar para:</label>
                 <div class="mg-top-5"></div>
 
                 <div class="grade1">

@@ -1,12 +1,17 @@
 .corpo {
     width:85%;
-    min-height: 558px;
+    min-height: 530px;
     display: inline-block;
     /*border: 1px solid #888;*/
-    margin: 20px auto;
+    margin: 20px 0;
+}
+@media(max-width:601px) {
+    .corpo {
+        margin: 90px 0 30px 0;
+    }
 }
 .dias {
-    width: 100%;
+    width: 90%;
     display: inline-block;
     min-height: 60px;
     margin: 0px 0 0 0;
@@ -26,7 +31,7 @@
     display: inline-block;
     width: 90px;
     height: 55px;
-    padding: 2px;
+    padding-top: 7px;
     background-color: #777;
     color: #fff;
     border-radius: 6px;
@@ -50,40 +55,14 @@
     width: 90px;
     display: inline-block;
     margin:20px 10px 10px 10px;
-    font-size: 14px !important;
 }
 .seta-right {
     text-align: left;
     width: 90px;
     display: inline-block;
     margin:20px 10px 10px 10px;
-    font-size: 14px !important;
 }
-.seg {
-    display: none;
-    text-align: center;
-}
-.ter {
-    display: none;
-    text-align: center;
-}
-.qua {
-    display: none;
-    text-align: center;
-}
-.qui {
-    display: none;
-    text-align: center;
-}
-.sex {
-    display: none;
-    text-align: center;
-}
-.sab {
-    display: none;
-    text-align: center;
-}
-.dom {
+.seg, .ter, .qua, .qui, .sex, .sab, .dom {
     display: none;
     text-align: center;
 }
@@ -91,17 +70,20 @@
     display: inline-block;
 }
 .grade-horarios a{
-    color: #444;
-    min-width: 25%;
-    padding: 4px;
-    font-size: 16px;
-    margin: 10px;
+    color: #222;
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
     display: inline-block;
     background-color: #fff;
-    border-bottom: 3px solid #777;
+    text-decoration: none;
+    border-radius: 400px;
+    padding-top: 16px;
+    border:3px solid #222;
+    margin: 5px 5px 0px 0px;
 }
 .grade-horarios a:hover {
-    border-bottom: 3px solid #eb6c05;
+    border: 3px solid #eb6c05;
 }
 .ocultar {
     display: none;
@@ -201,7 +183,7 @@
     color: #555;
 }
 .monitores {
-    width: 80%;
+    width: 100%;
     min-height: 250px;
     max-height: 500px;
     display: inline-block;
@@ -210,27 +192,42 @@
     overflow-y: auto; 
 }
 .monitor {
-
+    width: 100% !important;
 }
 .monitor a{
-    width: 90%;
-    display: inline-block;
+    display: block;
     margin-top: 10px;
-    background-color: #fff;
+    background-color: #ccc;
     color:#555;
-    padding: 25px 0;
+    padding: 18px 0;
     border-radius: 4px;
+    text-decoration: none;
+}
+.monitor a:hover {
+    background-color: #eb6c05;
+    color: #fff;
 }
 @media(max-width:480px) {
-    .monitor a{
-        width: 90%;
-        display: inline-block;
-        margin-top: 10px;
-        background-color: #fff;
-        color:#555;
-        padding: 25px 0;
-        border-radius: 4px;
-        font-size: 14px;
+}
+@media(max-width:760px) {
+    .logoff a{
+        position: fixed !important;
+        margin-top: 100px !important;
+        z-index: 1500;
     }
 }
-
+.logoff a{
+    position: absolute;
+    display: block;
+    right: 0;
+    margin: 90px 0px 0px 0px;
+    border-radius: 4px 0px 0px 4px;
+    background-color: #eb6c05;
+    padding: 10px;
+    box-shadow: -1px 2px 5px 0px #888;
+}
+@media(min-width:768px) {
+    .monitor a{
+        width: 400px;
+    }
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once './php/Sessao.php';
+$pag = 'rel';
 ?>
 <html>
     <?php include_once('./imports/import_head.php'); ?>
@@ -30,8 +31,12 @@ include_once './php/Sessao.php';
                             </div>
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-footer">
+                            <input type="submit" class="btn btn-success" value="Gerar Relatório">
+                        </div>
+                    </div>
 
-                    <input type="submit" class="btn btn-success" value="Gerar Relatório">
                 </form>
             </section>
         </div>

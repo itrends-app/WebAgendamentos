@@ -22,12 +22,13 @@ header h3 {
     float: left;
     margin-left: 10px;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 28px;
     color:#fff;
 }
 header img {
     float: right;
     margin: 15px 10px 0px 0px;
+    display: none;
 }
 header .btn-active-menu {
     float: left;
@@ -157,6 +158,27 @@ footer .logo-uni {
     background-color: #ccc;
     color: #000;
 }
+.panel-padding {
+    padding: 15px;
+}
+.mg-right-10 {
+    margin-right: 10px;
+}
+.mg-top-10 {
+    margin-top: 10px;
+}
+.mg-top-20 {
+    margin-top: 15px !important;
+}
+.wd-100 {
+    width: 100px !important;
+}
+.inline-block {
+    display: inline-block !important;
+}
+.border-painted {
+    border: 1px solid #f00;
+}
 @media(min-width:480px) {
     .btn-mob {
         width: auto;
@@ -164,6 +186,11 @@ footer .logo-uni {
     }
     footer h5 {
         font-size: 14px;
+    }
+}
+@media(min-width:540px) {
+    header img {
+        display: initial;
     }
 }
 @media(min-width:768px) {
@@ -179,9 +206,13 @@ footer .logo-uni {
     .form-tutor {
         width: 400px !important;
     }
+    
 }
 @media(min-width:992px) {
     .content-seundary {
         width: 48%;
+    }
+    .mg-top-20 {
+        margin-top: 30px !important;
     }
 }
