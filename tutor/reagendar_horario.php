@@ -38,11 +38,6 @@ if (isset($_SESSION['agendamento_id'])) {
                 </div>
                 <!--fim do alert-->
 
-                <div class="alert ocultar" role="alert">
-                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <span class="alert-msg"></span>
-                </div>
-
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead>
@@ -115,6 +110,14 @@ if (isset($_SESSION['agendamento_id'])) {
                         $('.grade1').css("display", "block");
                     }
                 });
+                $('.cad_horario').click(function () {
+                    $('.cad_horario').css('background-color', "#fff").css('color', '#000');
+                    var str = $(this).text();
+                    document.form_horarios.hora_marcada.value = str.replace(/\s/g, '');
+                    $(this).css('background-color', "rgb(235, 108, 5)").css('color', '#fff');
+                    $(this).css('border', '3px solid rgb(235, 108, 5)');
+                });
+
             });
             function selecionarHorario(data_agendada, hora_agendada, agendamento_id) {
                 $.ajax({
@@ -206,7 +209,7 @@ if (isset($_SESSION['agendamento_id'])) {
                                 $('#btn-confirmacao').addClass('hidden');
                                 $('#btn-atualizar').removeClass('hidden');
                                 $('#novo-horario').html("");
-                                $('.alert').addClass('alert-sucess').fadeIn(500);
+                                $('.alert').addClass('alert-success').fadeIn(500);
                                 $('.alert .alert-msg').html("Reagendamento realizado com sucesso!!");
                             } else {
                                 $('.alert').addClass('alert-danger').fadeIn(500);
@@ -221,10 +224,9 @@ if (isset($_SESSION['agendamento_id'])) {
             }
 
             function atualizar() {
-                location.href = 'reagendar_horario.php'; 
-                
-            }
+                location.href = 'reagendar_horario.php';
 
+            }
         </script>
 
     </body>

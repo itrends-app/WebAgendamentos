@@ -137,23 +137,18 @@
                     ?>
                     <a href="#" class="cad_horario">
                         <?php echo date_format($dd_dom, 'H:i'); ?></a>
-                    <?php
+                        <?php
+                    }
+                    date_add($dd_dom, date_interval_create_from_date_string($grade . ' minutes'));
                 }
-                date_add($dd_dom, date_interval_create_from_date_string($grade . ' minutes'));
             }
-        }
-        ?>
+            ?>
     </div>
 
 </div>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.cad_horario').click(function () {
-            $('.cad_horario').css('background-color', "#fff").css('color', '#000');
-            var str = $(this).text();
-            document.form_horarios.hora_marcada.value = str.replace(/\s/g, '');
-            $(this).css('background-color', "#777").css('color', '#fff');
-        });
+        
     });
 </script>

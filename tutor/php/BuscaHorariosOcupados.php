@@ -1,7 +1,7 @@
 <?php
 include_once './php/Conexao.php';
 
-$st = $pdo->prepare("select *, count(horario) as num_alunos from tb_agendamentos where monitor_id = :tutor group by horario");
+$st = $pdo->prepare("select *, count(horario) as num_alunos from tb_agendamentos where monitor_id = :tutor group by horario order by str_to_date(data, '%Y-%m-%d') desc");
 $st->bindValue(":tutor", $_SESSION['tutor_id']);
 $st->execute();
 
