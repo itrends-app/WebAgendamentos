@@ -1,0 +1,233 @@
+.corpo {
+    width:85%;
+    min-height: 530px;
+    display: inline-block;
+    /*border: 1px solid #888;*/
+    margin: 20px 0;
+}
+@media(max-width:601px) {
+    .corpo {
+        margin: 90px 0 30px 0;
+    }
+}
+.dias {
+    width: 90%;
+    display: inline-block;
+    min-height: 60px;
+    margin: 0px 0 0 0;
+    /*border: 1px solid #888;*/
+}
+.horarios {
+    display: inline-block;
+    width: 90%;
+    min-height: 380px;
+    margin: 10px auto;
+    /*border: 1px solid #888;*/
+}
+.dia1 {
+    text-align: left;
+    margin:10px 10px;
+    cursor: pointer;
+    display: inline-block;
+    width: 90px;
+    height: 55px;
+    padding-top: 7px;
+    background-color: #777;
+    color: #fff;
+    border-radius: 6px;
+    font-family: tahoma;
+}
+.horario1 {
+    width: 75%;
+    min-height: 350px;
+    display: inline-block;
+    margin:10px 10px;
+    /*border: 1px solid #000;*/
+}
+.dia2 {
+    display: none;
+}
+.ocult {
+    display: none;
+}
+.seta-left {
+    text-align: right !important;
+    width: 90px;
+    display: inline-block;
+    margin:20px 10px 10px 10px;
+}
+.seta-right {
+    text-align: left;
+    width: 90px;
+    display: inline-block;
+    margin:20px 10px 10px 10px;
+}
+.seg, .ter, .qua, .qui, .sex, .sab, .dom {
+    display: none;
+    text-align: center;
+}
+.grade-horarios {
+    display: inline-block;
+}
+.grade-horarios a{
+    color: #222;
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
+    display: inline-block;
+    background-color: #fff;
+    text-decoration: none;
+    border-radius: 400px;
+    padding-top: 16px;
+    border:3px solid #222;
+    margin: 5px 5px 0px 0px;
+}
+.grade-horarios a:hover {
+    border: 3px solid #eb6c05;
+}
+.ocultar {
+    display: none;
+}
+.desocultar {
+    display: inline-block;
+    /*border: 1px solid #f09;*/
+    width: 92%;
+}
+@media(max-width:548px) {
+    .dias {
+        width: 92%;
+        display: inline-block;
+        min-height: 60px;
+        margin: 20px 0 0 0;
+        /*border: 1px solid #888;*/
+    }
+    .horarios {
+        display: inline-block;
+        width: 90%;
+        min-height: 380px;
+        margin: 10px auto;
+        /*border: 1px solid #888;*/
+    }
+
+    .horario2 {
+        border: 1px solid #008200;
+        width: 100px;
+        height: 350px;
+        display: inline-block;
+        margin:10px 10px;
+        overflow-y: auto;
+    }
+    .dia2 {
+        text-align: left;
+        margin:10px 10px;
+        cursor: pointer;
+        display: inline-block;
+        min-width: 180px;
+        height: 45px;
+        padding-top: 13px;
+        background-color: #008200;
+        color: #fff;
+        border-radius: 10px;
+    }
+    .ocult {
+        display: block;
+    }
+}
+@media(min-width:720px) {
+    .form-confirmacao {
+        max-width: 74%;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: -1px 0px 5px 1px #aaa;
+        margin: 0 0 0 14%;
+        padding: 15px;
+        font-size: 18px;
+    }
+    .form-cancelamento {
+        max-width: 74%;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: -1px 0px 5px 1px #aaa;
+        margin: 0 0 0 14%;
+        padding: 15px;
+        font-size: 18px;
+    }
+}
+@media(max-width:720px) {
+    .form-confirmacao {
+        width: 95%;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: -1px 0px 5px 1px #aaa;
+        margin: 0 0 0 10px;
+        padding: 15px;
+        font-size: 14px;
+    }
+    .wdt-400 {
+        width: 96%;
+    }
+    .corpo {
+        width: 100%;
+    }
+    .form-cancelamento {
+        width: 95%;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: -1px 0px 5px 1px #aaa;
+        margin: 0 0 0 10px;
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+.form-confirmacao span {
+    color: #555;
+}
+.monitores {
+    width: 100%;
+    min-height: 250px;
+    max-height: 500px;
+    display: inline-block;
+    font-family: tahoma;
+    font-size: 18px;
+    overflow-y: auto; 
+}
+.monitor {
+    width: 100% !important;
+}
+.monitor a{
+    display: block;
+    margin-top: 10px;
+    background-color: #ccc;
+    color:#555;
+    padding: 18px 0;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.monitor a:hover {
+    background-color: #eb6c05;
+    color: #fff;
+}
+@media(max-width:480px) {
+}
+@media(max-width:760px) {
+    .logoff a{
+        position: fixed !important;
+        margin-top: 100px !important;
+        z-index: 1500;
+    }
+}
+.logoff a{
+    position: absolute;
+    display: block;
+    right: 0;
+    margin: 90px 0px 0px 0px;
+    border-radius: 4px 0px 0px 4px;
+    background-color: #eb6c05;
+    padding: 10px;
+    box-shadow: -1px 2px 5px 0px #888;
+}
+@media(min-width:768px) {
+    .monitor a{
+        width: 400px;
+    }
+}

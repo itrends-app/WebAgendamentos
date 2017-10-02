@@ -1,8 +1,8 @@
 <?php
 
+include_once './HoraAtual.php';
 session_name('tutor');
 session_start();
-include_once './HoraAtual.php';
 
 $data_agendada = $_POST['data'];
 $hora_agendada = $_POST['hora'];

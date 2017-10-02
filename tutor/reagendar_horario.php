@@ -10,6 +10,9 @@ $st->bindValue(":monitor", $_SESSION['tutor_id']);
 $st->execute();
 $con = $st->fetch(PDO::FETCH_ASSOC);
 $grade = $con['exibicao_grade'];
+$con_seleciona_agendamento = null;
+$dia = "";
+
 if (isset($_SESSION['agendamento_id'])) {
     $st2 = $pdo->prepare("select * from tb_agendamentos where id = :agendamento");
     $st2->bindValue(":agendamento", $_SESSION['agendamento_id']);
@@ -28,6 +31,13 @@ if (isset($_SESSION['agendamento_id'])) {
             <section class="main-content">
                 <div class="title">Reagendar Horário</div>
 
+                <!--alert-->
+                <div class="alert ocultar" role="alert">
+                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="alert-msg"></span>
+                </div>
+                <!--fim do alert-->
+
                 <div class="alert ocultar" role="alert">
                     <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <span class="alert-msg"></span>
@@ -45,10 +55,6 @@ if (isset($_SESSION['agendamento_id'])) {
                         <?php include_once './php/BuscaHorariosOcupados.php'; ?>
                     </table>
                 </div>
-
-                <div class="mg-top-20"></div>
-                <div class="ln-tracejada-1"></div>
-                <div class="mg-top-10"></div>
                 <center>
                     <?php if (isset($_SESSION['agendamento_id'])) { ?>
                         <div id="novo-horario">
@@ -68,21 +74,20 @@ if (isset($_SESSION['agendamento_id'])) {
                             </div>
                         </div>
                     <?php } ?>
-
-
                 </center>
                 <form name="reagendar">
-                    <span class="fs fs-16">Justificativa:<b class="c-red">*</b></span>
-                    <div class="mg-top-5"></div>
-                    <textarea class="inp inp-catolica" name="motivo"></textarea>
+                    <label>Justificativa:<b class="c-red">*</b></label>
+                    <textarea class="form-control" name="motivo"></textarea>
                 </form>
 
                 <div class="mg-top-10"></div>
 
-                <center>
-                    <input type="button" id="btn-confirmacao" class="button button-orange fs fs-16" value="Confirmar Reagendamento" onclick="confirmarEdicao();">
-                    <input type="button" id="btn-atualizar" class="button button-orange fs fs-16 ocultar" value="Atualizar" onclick="atualizar();">
-                </center>
+                <div class="panel panel-default">
+                    <div class="panel-footer">
+                        <input type="button" id="btn-confirmacao" class="btn btn-success btn-mob" value="Confirmar Reagendamento" onclick="confirmarEdicao();">
+                        <input type="button" id="btn-atualizar" class="btn btn-primary btn-mob hidden" value="Atualizar" onclick="atualizar();">
+                    </div>
+                </div>
             </section>
         </div>
 
@@ -112,7 +117,6 @@ if (isset($_SESSION['agendamento_id'])) {
                 });
             });
             function selecionarHorario(data_agendada, hora_agendada, agendamento_id) {
-                abreLoading();
                 $.ajax({
                     type: 'post',
                     dataType: 'html',
@@ -124,7 +128,6 @@ if (isset($_SESSION['agendamento_id'])) {
                     },
                     success: function (msg) {
                         if (msg === "ok") {
-                            fechaLoading();
                             location.href = 'reagendar_horario.php';
                         } else {
                             $('.alert').addClass('alert-danger').fadeIn(500);
@@ -133,16 +136,6 @@ if (isset($_SESSION['agendamento_id'])) {
                         }
                     }
                 });
-            }
-
-            function fecharMsgErro() {
-                $('.mensagem').css('display', 'none').css('transition', '1s');
-            }
-            function abreLoading() {
-                $('#loading').css('display', 'block');
-            }
-            function fechaLoading() {
-                $('#loading').css('display', 'none');
             }
 
             function pintar(dia, num, dia_atual, data_agendada) {
@@ -191,7 +184,6 @@ if (isset($_SESSION['agendamento_id'])) {
             }
 
             function confirmarEdicao() {
-                abreLoading();
                 var novoDia = this.form_horarios.dia_marcado.value;
                 var novoMes = this.form_horarios.mes_marcado.value;
                 var novoNumMes = this.form_horarios.mes_num.value;
@@ -211,23 +203,20 @@ if (isset($_SESSION['agendamento_id'])) {
                         },
                         success: function (msg) {
                             if (msg === "ok") {
-                                fechaLoading();
-                                $('#btn-confirmacao').addClass('ocultar');
-                                $('#btn-atualizar').removeClass('ocultar');
+                                $('#btn-confirmacao').addClass('hidden');
+                                $('#btn-atualizar').removeClass('hidden');
                                 $('#novo-horario').html("");
-                                $('.mensagem span').html("Reagendamento realizado com sucesso!!");
-                                $('.mensagem').css('display', 'block').css('background-color', '#32BF32').removeClass('bg-red-60');
+                                $('.alert').addClass('alert-sucess').fadeIn(500);
+                                $('.alert .alert-msg').html("Reagendamento realizado com sucesso!!");
                             } else {
-                                fechaLoading();
-                                $('.mensagem span').html("Erro ao tentar confirmar o reagendamento!");
-                                $('.mensagem').css('display', 'block').addClass('bg-red-60');
+                                $('.alert').addClass('alert-danger').fadeIn(500);
+                                $('.alert .alert-msg').html("Erro ao tentar confirmar o reagendamento!");
                             }
                         }
                     });
                 } else {
-                    fechaLoading();
-                    $('.mensagem span').html("Por favor, digite um motivo válido para o concluir o reagendamento! (O motivo deve conter no mínimo 20 caracteres)");
-                    $('.mensagem').css('display', 'block').addClass('bg-red-60');
+                    $('.alert .alert-msg').html("Por favor, digite um motivo válido para o concluir o reagendamento! (O motivo deve conter no mínimo 20 caracteres)");
+                    $('.alert').addClass('alert-danger').fadeIn(500);
                 }
             }
 

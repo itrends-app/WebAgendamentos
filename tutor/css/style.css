@@ -179,6 +179,9 @@ footer .logo-uni {
 .border-painted {
     border: 1px solid #f00;
 }
+.ocultar {
+    display: none;
+}
 @media(min-width:480px) {
     .btn-mob {
         width: auto;
