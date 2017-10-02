@@ -221,7 +221,8 @@ if (isset($_SESSION['agendamento_id'])) {
             }
 
             function atualizar() {
-                location.href = 'reagendar_horario.php';
+                location.href = 'reagendar_horario.php'; 
+                
             }
 
         </script>
