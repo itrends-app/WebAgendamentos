@@ -118,11 +118,11 @@ function excluirHorario() {
         success: function (msg) {
             if (msg === "ok") {
                 $('#tabela').empty();
-                $('.alert').addClass('alert-success').fadeIn(500);
+                $('.alert').removeClass('alert-danger').addClass('alert-success').fadeIn(500);
                 $('.alert .alert-msg').html("Os horários do tutor foram excluídos com sucesso!");
-            }  else {
+            } else {
                 $('.alert').addClass('alert-danger').fadeIn(500);
-                $('.alert .alert-msg').html("Impossível excluir o horário do tutor. Monitor já possui agendamentos vinculados a ele!");
+                $('.alert .alert-msg').html("Impossível excluir o horário do tutor, pois já possui agendamentos vinculados a ele!");
             }
         }
     });
@@ -169,7 +169,7 @@ function selecionar(id_monitor) {
                 if (dados === "ok") {
                     passaAba();
                 } else {
-                    $('.alert').fadeIn(300).addClass('alert-danger');
+                    $('.alert').removeClass('alert-success').addClass('alert-danger').fadeIn(500);
                     $('.alert .alert-msg').html("Tutor já foi cadastrado!")
                     document.getElementById("id-monitor").value = "0";
                 }
@@ -224,26 +224,27 @@ function editar(id_monitor) {
 function fecharMsgErro() {
     $('.mensagem').css('display', 'none').css('transition', '1s');
 }
-$(document).ready(function () {
-    $(".btn-confirmar").click(function () {
-        $.ajax({
-            type: 'post',
-            dataType: 'html',
-            url: './php/cad_horario_monitor.php',
-            success: function (dados) {
-                $(".mensagem span").html("Cadastro finalizado com sucesso!");
-                $(".mensagem").css("display", "block").css('background-color', '#32BF32').removeClass('bg-red-60');
-                $(".btn-novo").css("display", "block");
-                $(".btn-confirmar").css("display", "none");
-            }
-        });
-    });
 
-    $(".btn-novo").click(function () {
-        location.href = "cadastrotutor.php";
+//finaliza o cadastro do tutor
+function finalizaCadastroTutor() {
+    $.ajax({
+        type: 'post',
+        dataType: 'html',
+        url: './php/cad_horario_monitor.php',
+        success: function (dados) {
+            $(".alert .alert-msg").html("Cadastro finalizado com sucesso!");
+            $(".alert").removeClass('alert-danger').addClass('alert-success').fadeIn(500);
+            $("#btn-novo").css("display", "block");
+            $("#btn-confirmar").css("display", "none");
+            $("#alert-confirm").css("display", "none");
+        }
     });
+}
+$("#btn-novo").click(function () {
+    location.href = "cadastrotutor.php";
 });
 
+//armazena os dados da aba avançado
 var aba_agendado = 0;
 
 $(document).ready(function () {
@@ -266,12 +267,12 @@ $(document).ready(function () {
                 },
                 success: function (dados) {
                     $('.alert').fadeOut(0);
-                    $('#aba-agendado .alert').addClass('alert-success').fadeIn(500);
+                    $('#aba-agendado .alert').removeClass('alert-danger').addClass('alert-success').fadeIn(500);
                     $("#aba-agendado .alert .alert-msg").html(dados);
                 }
             });
         } else {
-            $('.alert').addClass('alert-danger').fadeIn(500);
+            $('.alert').removeClass('alert-success').addClass('alert-danger').fadeIn(500);
             $('.alert .alert-msg').html('Impossível prosseguir, por favor verifique os dados fornecidos!');
         }
     });
@@ -303,6 +304,7 @@ function validarAbaAvancado() {
     return false;
 }
 
+//armazena os dados da aba horários
 var aba_avancado = 0;
 $(document).ready(function () {
 

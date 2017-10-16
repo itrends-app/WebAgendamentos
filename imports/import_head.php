@@ -10,4 +10,5 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./galery-icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="./iconfont/material-icons.css">
+    <link rel="stylesheet" href="paginationjs-master/src/pagination.less">
 </head>

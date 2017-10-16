@@ -28,7 +28,7 @@ $mes_atual = intval(date('m'));
                     <input type="text" id="val4" value="<?php echo $abril; ?>">
                     <input type="text" id="val5" value="<?php echo $maio; ?>">
                     <input type="text" id="val6" value="<?php echo $junho; ?>">
-                    
+
                     <input type="text" id="val7" value="<?php echo $julho; ?>">
                     <input type="text" id="val8" value="<?php echo $agosto; ?>">
                     <input type="text" id="val9" value="<?php echo $setembro; ?>">
@@ -45,7 +45,7 @@ $mes_atual = intval(date('m'));
                         <canvas id="myAreaChart" width="100%" height="30"></canvas>
                     </div>
                     <div class="card-footer small text-muted">
-                        Atualizado hoje : <?php echo date('H:i');?>
+                        Atualizado hoje : <?php echo date('H:i'); ?>
                     </div>
                 </div>
                 <!--<div id="columnchart_values" class="grafico-home"></div>-->

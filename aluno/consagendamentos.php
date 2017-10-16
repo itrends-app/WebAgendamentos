@@ -45,37 +45,42 @@ $pag = "opt";
         <?php
         include_once('./imports/import_footer.php');
         ?>
-    </body>
-    <script type="text/javascript">
-        $('#dt_ini').mask('99/99/9999');
-        $('#dt_fim').mask('99/99/9999');
-
-        function buscar() {
-            $('#dados-agenda').empty();
-            var data_inicial = this.form.dataI.value;
-            var data_final = this.form.dataF.value;
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: './php/ConsultaAgendamentos.php',
-                data: {
-                    data_ini: data_inicial,
-                    data_fim: data_final
-                },
-                success: function (dados) {
-                    if (dados === "not") {
-                        $('#dados-agenda').append("<tr><td colspan='4'>Nenhum agendamento encontrado!</td></tr>");
-                    } else {
-                        for (var i = 0; i < dados.length; i++) {
-                            $('#dados-agenda').append('<tr><td>' + dados[i].firstname + '</td><td>' + dados[i].fullname + '</td><td>' + dados[i].horario + '</td>\n\
-                                <td class="text-center"><a href="./php/pega_dados_via_email.php?id=' + dados[i].id + '&email=<?php echo $_SESSION['email_aluno']; ?>&edt=' + dados[i].monitor_id + '"><i class="material-icons md-dark">settings</i></a> \n\
-                                <a href="./php/pega_dados_via_email.php?id=' + dados[i].id + '&email=<?php echo $_SESSION['email_aluno']; ?>"><i class="material-icons md-dark-red">delete_forever</i></a></td></tr>');
-                        }
-                    }
-                    footer();
-                }
+        <script type="text/javascript">
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
             });
-        }
-       
-    </script>
+
+            $('#dt_ini').mask('99/99/9999');
+            $('#dt_fim').mask('99/99/9999');
+
+            function buscar() {
+                $('#dados-agenda').empty();
+                var data_inicial = this.form.dataI.value;
+                var data_final = this.form.dataF.value;
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: './php/ConsultaAgendamentos.php',
+                    data: {
+                        data_ini: data_inicial,
+                        data_fim: data_final
+                    },
+                    success: function (dados) {
+                        if (dados === "not") {
+                            $('#dados-agenda').append("<tr><td colspan='4'>Nenhum agendamento encontrado!</td></tr>");
+                        } else {
+                            for (var i = 0; i < dados.length; i++) {
+                                $('#dados-agenda').append('<tr><td>' + dados[i].firstname + '</td><td>' + dados[i].fullname + '</td><td>' + dados[i].horario + '</td>\n\
+                                <td class="text-center"><a data-toggle="tooltip" data-placement="bottom" title="Reagendar horário" href="./php/pega_dados_via_email.php?id=' + dados[i].id + '&email=<?php echo $_SESSION['email_aluno']; ?>&edt=' + dados[i].monitor_id + '"><i class="material-icons md-dark">settings</i></a> \n\
+                                <a href="./php/pega_dados_via_email.php?id=' + dados[i].id + '&email=<?php echo $_SESSION['email_aluno']; ?>"><i class="material-icons md-dark-red">delete_forever</i></a></td></tr>');
+                            }
+                        }
+                        footer();
+                    }
+                });
+            }
+
+        </script>
+    </body>
+
 </html>

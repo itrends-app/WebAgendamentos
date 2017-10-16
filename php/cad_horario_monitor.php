@@ -38,9 +38,9 @@ $status = $_SESSION['status'];
 
 include_once('./conexao.php');
 try {
-    $pdo->query("insert into tb_horarios_monitor (curso_id ,monitor_id, segunda, seg_ini, seg_fim, terca, ter_ini, ter_fim, quarta, qua_ini, qua_fim, quinta, "
+    $pdo->query("INSERT INTO tb_horarios_monitor (curso_id ,monitor_id, segunda, seg_ini, seg_fim, terca, ter_ini, ter_fim, quarta, qua_ini, qua_fim, quinta, "
         . "qui_ini, qui_fim, sexta, sex_ini, sex_fim, sabado, sab_ini, sab_fim, domingo, dom_ini, dom_fim, exibicao_grade, agend_minimo, agend_padrao, "
-        . "agend_maximo, pausa, retorno, aviso_minimo, und_tempo, limite, status) values('$curso' ,'$monitor', '$segunda', '$seg_ini', '$seg_fim', '$terca', '"
+        . "agend_maximo, pausa, retorno, aviso_minimo, und_tempo, limite, status) VALUES('$curso' ,'$monitor', '$segunda', '$seg_ini', '$seg_fim', '$terca', '"
         . "$ter_ini', '$ter_fim', '$quarta', '$qua_ini', '$qua_fim', '$quinta', '$qui_ini', '$qui_fim', '$sexta', '$sex_ini', '$sex_fim', '$sabado', "
         . "'$sab_ini', '$sab_fim', '$domingo', '$dom_ini', '$dom_fim', '$grade', '$agend_min', '$agend_padrao', '$agend_max', '$pausa', '$retorno', "
         . "'$aviso_min', '$und_tempo', '$limite', '$status')");

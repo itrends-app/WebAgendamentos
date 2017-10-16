@@ -31,8 +31,8 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function(){
-    $('button.close').on('click', function(){
+$(document).ready(function () {
+    $('button.close').on('click', function () {
         $('.alert').fadeOut(300);
     });
 });
@@ -46,6 +46,3 @@ function footer() {
         $('footer').css('position', 'relative').css('margin-top: 50px');
     }
 }
-
-
-

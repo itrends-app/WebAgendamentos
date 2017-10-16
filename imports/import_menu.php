@@ -5,14 +5,14 @@
         <li class="have-children <?php echo ($pag == 'cad')?'active':'';?>" ><a href="#"><span class="fa fa-plus-circle"></span>Cadastrar</a>
             <ul <?php echo ($pag == 'cad')?'style="display:block"':'';?>>
                 <li><a href="cadastrotutor.php">Tutores</a></li>
-                <li><a href="#">Avaliação</a></li>
+                <!--<li><a href="#">Avaliação</a></li>-->
                 <li><a href="cadastrousuario.php">Usuários</a></li>
             </ul>
         </li>
         <li class="have-children <?php echo ($pag == 'con')?'active':'';?>"><a href="#"><span class="fa fa-search"></span>Consultar</a>
             <ul <?php echo ($pag == 'con')?'style="display:block"':'';?>>
                 <li><a href="consagendamentos.php">Agendamentos</a></li>
-                <li><a href="#">Avaliações</a></li>
+                <!--<li><a href="#">Avaliações</a></li>-->
                 <li><a href="consusuarios.php">Usuários</a></li>
             </ul>
         </li>

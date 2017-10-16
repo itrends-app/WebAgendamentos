@@ -55,8 +55,8 @@ $pag = 'con';
                 </form>
                 <br>
 
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
+                <div class="table-responsive" id="demo">
+                    <table class="table table-bordered table-hover" >
                         <thead>
                             <tr>
                                 <th>Matrícula</th>
