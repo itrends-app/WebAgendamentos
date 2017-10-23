@@ -179,6 +179,9 @@ footer .logo-uni {
 .border-painted {
     border: 1px solid #f00;
 }
+.org-table tr td {
+    padding-bottom: 6px !important;
+}
 @media(min-width:480px) {
     .btn-mob {
         width: auto;
