@@ -1,14 +1,14 @@
 <div id="aba-avancado">
     <div class="panel panel-default">
         <form method="post" action="" id="form-avancado" name="form_avancado">
-            <div class="row">
+            <div class="row ocultar">
                 <div class="col-xs-8 col-md-3">
                     <div class="form-group">
                         <label>Aviso mínimo:</label>
                         <input type="text" class="form-control" id="aviso-minimo" name="aviso_minimo">
                     </div>
                 </div>
-                <div class="col-xs-4 col-md-3">
+                <div class="col-xs-4 col-md-3 ">
                     <label>Und. Tempo:</label>
                     <div class="form-group">
                         <select class="form-control" name="und_tempo" id="sel-und">

@@ -202,7 +202,6 @@ function validarAbaMonitor() {
     }
 }
 function editar(id_monitor) {
-    alert(id_monitor);
     $.ajax({
         type: 'POST',
         dataType: 'html',
@@ -253,7 +252,7 @@ $(document).ready(function () {
         var aviso = document.getElementById("aviso-minimo").value;
         var und = document.getElementById("sel-und").value;
         var limite_agend = document.getElementById('limite').value;
-        if (validarAbaAvancado() === true) {
+        if (limite_agend != "" && limite_agend != " " && limite_agend != "0") {
             passaAba3();
             aba_agendado = 1;
             $.ajax({
@@ -293,15 +292,7 @@ function passaAba3() {
 }
 
 function validarAbaAvancado() {
-    var aviso2 = document.getElementById("aviso-minimo").value;
-//        alert(aviso2);
-    if (aviso2 !== "") {
-        if (aviso2 > 48) {
-            return false;
-        }
-        return true;
-    }
-    return false;
+    return true;
 }
 
 //armazena os dados da aba horários
