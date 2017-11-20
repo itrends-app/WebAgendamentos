@@ -26,7 +26,7 @@
                 <li><a href="editarperfil.php">Perfil</a></li>
             </ul>
         </li>
-        <li><a href="#"><span class="fa fa-sign-out"></span>Sair</a></li>
+        <li><a href="logout.php"><span class="fa fa-sign-out"></span>Sair</a></li>
     </ul>
 </nav>
 

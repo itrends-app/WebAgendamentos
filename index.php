@@ -23,7 +23,10 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="form-user" class="text-capitalize">usuário</label>
-                                <input type="text" name="user" id="form-user" class="form-control" />
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" name="user" id="form-user" class="form-control" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -31,7 +34,10 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="form-senha" class="text-capitalize">senha:</label>
-                                <input type="password" name="senha" id="form-senha" class="form-control" />
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input type="password" name="senha" id="form-senha" class="form-control" />
+                                </div>
                             </div>
                         </div>
                     </div>

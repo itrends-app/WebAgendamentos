@@ -151,7 +151,7 @@
                             <td>min</td>
                         </tr>
 
-                        <tr>
+                        <tr class="hidden">
                             <td class="direita">Agendamento Mínimo:</td>
                             <td>
                                 <select class="form-control" name="agend_min">
@@ -164,7 +164,7 @@
                             <td>min</td>
                         </tr>
 
-                        <tr>
+                        <tr class="hidden">
                             <td class="direita">Agendamento Padrão:</td>
                             <td>
                                 <select class="form-control" name="agend_padrao">
@@ -175,7 +175,7 @@
                             <td>min</td>
                         </tr>
 
-                        <tr>
+                        <tr class="hidden">
                             <td class="direita">Agendamento Máximo:</td>
                             <td>
                                 <select class="form-control" name="agend_max">
